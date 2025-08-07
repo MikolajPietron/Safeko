@@ -1,0 +1,181 @@
+@font-face {
+  font-family: 'HankenGrotesk';
+  src: url('/fonts/HankenGrotesk-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'NeueMontreal', sans-serif;
+}
+.PageContainer{
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.SafekoLogo{
+  position: fixed;
+  
+  left: 50%;
+  top: 70px;
+  height: 30vh;
+  width: 50vw;
+  transform: translate(-50%, 0);
+  z-index: 100;
+}
+.LogoIcon{
+  width: 100%;
+  height: 100%;
+}
+.header{
+  position: absolute;
+  display: flex;
+  top: 0;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  height: 60px;
+  width: 100%;
+  background-color: white;
+}
+.header-logo{
+  position: absolute;
+  width: 200px;
+  height: 90px;
+  left: -10px;
+  top: -15px;
+  
+}
+.UserIcon{
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  
+  
+}
+.MainPageText{
+  position: absolute;
+  display: flex;
+  width: 30vw;
+  height: 30vh;
+  
+  margin-left: 50px;
+  margin-top: 150px;
+  font-size: 4rem;
+  font-family: 'HankenGrotesk';
+  font-weight: 500;
+  
+
+}
+.ButtonsContainer{
+  height: 10vh;
+  width: 70%;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  bottom: 50px;
+  left: 50%;
+  transform: translate(-50%,0);
+  
+  border-radius: 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  background-color: transparent;
+  z-index: 10000;
+
+  
+}
+.LoginContainer{
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  height: 80%;
+  width: 20%;
+  border: 2px solid rgb(255, 255, 255);
+  justify-content: center;
+  border-radius: 20px;
+  align-items: center;
+  align-self: center;
+}
+.LoginButton{
+  height: 80%;
+  width: 50%;
+  align-self: right;
+  background-color: transparent;
+  background-color: white;
+  border-radius: 20px;
+  color: black;
+  font-size: 1.5rem;
+  font-family: 'HankenGrotesk';
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+}
+.OffersContainer{
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  height: 80%;
+  width: 20%;
+  border: 2px solid rgb(255, 255, 255);
+  justify-content: center;
+  border-radius: 20px;
+  align-items: center;
+  align-self: center;
+}
+.OffersButton{
+  height: 80%;
+  width: 50%;
+  align-self: right;
+  background-color: transparent;
+  background-color: white;
+  border-radius: 20px;
+  color: black;
+  font-size: 1.5rem;
+  font-family: 'HankenGrotesk';
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.GroupsContainer{
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  height: 80%;
+  width: 20%;
+  border: 2px solid rgb(255, 255, 255);
+  justify-content: center;
+  border-radius: 20px;
+  align-items: center;
+  align-self: center;
+}
+.GroupsButton{
+  height: 80%;
+  width: 50%;
+  align-self: right;
+  background-color: transparent;
+  background-color: white;
+  border-radius: 20px;
+  color: black;
+  font-size: 1.5rem;
+  font-family: 'HankenGrotesk';
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.GroupsButton:hover{
+  background-color: transparent;
+  color: white;
+}
+.LoginButton:hover{
+  background-color: transparent;
+  color: white;
+}
+.OffersButton:hover{
+  background-color: transparent;
+  color: white;
+}

@@ -1,95 +1,57 @@
 import Image from "next/image";
-import styles from "./page.module.css";
+import "./page.css";
+import LightRays from '../components/Backgrounds/LightRays/LightRays';
+import UserIcon from '@mui/icons-material/Person';
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+
+
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="PageContainer">
+      <div className="MainPageText">Get ready for <br/> new marketplace <br/> experience_</div>
+      <div className="header">
+        <img src="Safeko-header-logo.png" className="header-logo"/>
+        <UserIcon style = {{ fontSize : 50, color : "Black"}} className='UserIcon'/>
+      </div>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+      <div className="SafekoLogo">
+      <img src= "/1.svg" className="LogoIcon"/>
+
+       
+      </div>
+      <div style={{ width: '100%', height: '100%', position: 'relative'}}>
+          <LightRays
+            raysOrigin="bottom-center"
+            raysColor="#ffffffff"
+            raysSpeed={1.2}
+            lightSpread={0.8}
+            rayLength={0.8}
+            followMouse={true}
+            mouseInfluence={0.4}
+            noiseAmount={0.1}
+            distortion={0.05}
+            className="custom-rays"
+      />
+      </div>
+      <div className="ButtonsContainer">
+        <div className="LoginContainer">
+          <KeyboardDoubleArrowRightIcon style={{fontSize:50,color:"white"}}/>
+          <button className="LoginButton">Log in</button>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div className="OffersContainer">
+          <KeyboardDoubleArrowRightIcon style={{fontSize:50,color:"white"}}/>
+          <button className="OffersButton">Offers</button>
+        </div>
+        <div className="GroupsContainer">
+          <KeyboardDoubleArrowRightIcon style={{fontSize:50,color:"white"}}/>
+          <button className="GroupsButton">Groups</button>
+        </div>
+      </div>
     </div>
+    
+   
+    
+
   );
 }
