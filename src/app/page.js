@@ -1,12 +1,21 @@
+'use client';
 import Image from "next/image";
 import "./page.css";
 import LightRays from '../components/Backgrounds/LightRays/LightRays';
 import UserIcon from '@mui/icons-material/Person';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+import { useRouter } from "next/navigation";
+import Oferty from "./oferty/page";
 
 
 
 export default function Home() {
+  
+  const router = useRouter();
+
+  const goToOffers = () =>{
+    router.push("/oferty");
+  }
   return (
     <div className="PageContainer">
       <div className="MainPageText">Get ready for <br/> new marketplace <br/> experience_</div>
@@ -41,7 +50,7 @@ export default function Home() {
         </div>
         <div className="OffersContainer">
           <KeyboardDoubleArrowRightIcon style={{fontSize:50,color:"white"}}/>
-          <button className="OffersButton">Offers</button>
+          <button onClick ={goToOffers} className="OffersButton">Offers</button>
         </div>
         <div className="GroupsContainer">
           <KeyboardDoubleArrowRightIcon style={{fontSize:50,color:"white"}}/>

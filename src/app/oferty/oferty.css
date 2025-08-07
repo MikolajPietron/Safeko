@@ -1,0 +1,229 @@
+@font-face {
+  font-family: 'HankenGrotesk';
+  src: url('/fonts/HankenGrotesk-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'NeueMontreal', sans-serif;
+}
+
+.OfertyPageContainer{
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    border: 2px solid red;
+}
+.dodajOferte{
+    position: absolute;
+    right: 80px;
+    border-radius: 20px;
+    top: 120px;
+    background-color: white;
+    color: black;
+    font-family: 'HankenGrotesk';
+    font-weight: 800;
+    font-size: 1rem;
+    height: 5vh;
+    width: 9%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.dodajOferte:hover{
+    background-color: transparent;
+    color: white;
+}
+.header{
+  position: absolute;
+  display: flex;
+  top: 0;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  height: 60px;
+  width: 100%;
+  background-color: white;
+}
+.header-logo{
+  position: absolute;
+  width: 200px;
+  height: 90px;
+  left: -10px;
+  top: -15px;
+  
+}
+.UserIcon{
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  
+  
+}
+.OfertaAddModal {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  height: 80vh;
+  width: 70vw;
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 100%); /* Start hidden (off screen) */
+  background-color: white;
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  z-index: 999;
+  pointer-events: none; /* Prevent interaction when hidden */
+}
+
+.OfertaAddModal.visible {
+  transform: translate(-50%, -5%); /* Slide up into view */
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+.Photos{
+    height: 60%;
+    width: 40%;
+    display: grid;
+    gap: 0;
+    grid-template-columns: repeat(2,1fr );
+    grid-template-rows: repeat(2,1fr);
+    background-color: black;
+    position: absolute;
+    place-items: center;
+    right: 20px;
+    top: 20px;
+}
+.Photo1{
+width: 70%;
+height: 80%;
+border: 2px solid white;
+}
+.Photo2{
+width: 70%;
+height: 80%;
+border: 2px solid white;
+}
+.Photo3{
+width: 70%;
+height: 80%;
+border: 2px solid white;
+}
+.Photo4{
+width: 70%;
+height: 80%;
+border: 2px solid white;
+}
+.OfertaAddModal input{
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 30%;
+    height: 10%;
+    border: none;
+    background-color: black;
+    font-weight: 800;
+    font-family: 'HankenGrotesk';
+    font-size: 2rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+.OfertaAddModal::placeholder{
+    text-align: center;
+}
+.SubmitOferta{
+  height: 6vh;
+  width: 12vw;
+  
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 40px;
+  background-color: black;
+  border-radius: 20px;
+  color: rgb(255, 255, 255);
+  font-family: 'HankenGrotesk';
+  font-weight: 800;
+  font-size: 1.4rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.SubmitOferta:hover{
+  scale: 1.2;
+  background-color: transparent;
+  color: black;
+  border: 2px solid black;
+}
+.OfertaItem{
+  
+}
+.OfertyList{
+  border: 2px solid rgb(255, 255, 255);
+  height: 55vh;
+  width: 25vw;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  justify-content: center;
+  text-align: center;
+}
+.OfertaItem h3{
+  position: absolute;
+  top:50%;
+  left: 20px;
+  font-family: 'HankenGrotesk';
+  letter-spacing: 2px;
+  font-size: 2rem;
+}
+.OfertaItem p[class = 'cena']{
+  position: absolute;
+  top: 52%;
+  right: 20px;
+  font-weight: 800;
+  font-family: 'HankenGrotesk';
+  letter-spacing: 2px;
+  font-size: 1.4rem;
+}
+.OfertaItem p[class = 'opis']{
+  position: absolute;
+  bottom: 90px;
+  
+  font-weight: 800;
+  font-family: 'HankenGrotesk';
+  letter-spacing: 2px;
+}
+.Kup{
+  height: 5vh;
+  width: 8vw;
+  background-color: white;
+  position: absolute;
+  bottom: 140px;
+  left: 20px;
+  color: black;
+  font-family: 'HankenGrotesk';
+  font-weight: 800;
+  font-size: 1rem;
+  text-align: center;
+  border-radius: 15px;
+}
+.szczegoly{
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  font-family: "HankenGrotesk";
+}
+.OfertaItem img{
+  height: 25vh;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: 10px;
+  border-radius: 20px;
+  border: 2px solid white;
+}
