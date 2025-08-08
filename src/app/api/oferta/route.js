@@ -11,6 +11,7 @@ export async function POST(request) {
       nazwa: body.nazwa,
       cena: body.cena,
       opis: body.opis,
+      imageKey: body.imageKey
     });
 
     await oferta.save();

@@ -8,9 +8,12 @@ export default function Oferty() {
   const [formData, setFormData] = useState({
     nazwa: '',
     cena: '',
-    opis: ''
+    opis: '',
+    imageKey: '' // 👈 this will store the uploaded image name/key
   });
-  const [ofertyList, setOfertyList] = useState([]); 
+  const [ofertyList, setOfertyList] = useState([]);
+  const [file, setFile] = useState(null);
+  const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
     async function fetchOferty() {
@@ -18,7 +21,6 @@ export default function Oferty() {
       const data = await res.json();
       setOfertyList(data);
     }
-
     fetchOferty();
   }, []);
 
@@ -30,23 +32,63 @@ export default function Oferty() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
 
+  function handleFileChange(e) {
+    setFile(e.target.files[0]);
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
+    setUploading(true);
 
-    const res = await fetch('/api/oferta', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    });
+    let uploadedFileName = "";
 
-    if (res.ok) {
-      alert('Oferta dodana!');
-      setFormData({ nazwa: '', cena: '', opis: '' });
-      setVisible(false);
-    } else {
-      alert('Wystąpił błąd.');
+    try {
+      // 1. Upload to S3 first
+      if (file) {
+        const uploadForm = new FormData();
+        uploadForm.append('file', file);
+
+        const uploadRes = await fetch('/api/s3-upload', {
+          method: 'POST',
+          body: uploadForm,
+        });
+
+        const uploadResult = await uploadRes.json();
+
+        if (uploadRes.ok) {
+          uploadedFileName = uploadResult.fileName;
+        } else {
+          alert("Błąd podczas przesyłania zdjęcia.");
+          setUploading(false);
+          return;
+        }
+      }
+
+      // 2. Send all data (including image key) to MongoDB
+      const res = await fetch('/api/oferta', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          ...formData,
+          imageKey: uploadedFileName,
+        }),
+      });
+
+      if (res.ok) {
+        alert('Oferta dodana!');
+        setFormData({ nazwa: '', cena: '', opis: '', imageKey: '' });
+        setFile(null);
+        setVisible(false);
+      } else {
+        alert('Wystąpił błąd przy dodawaniu oferty.');
+      }
+    } catch (err) {
+      console.error("Upload error", err);
+      alert("Coś poszło nie tak.");
+    } finally {
+      setUploading(false);
     }
   }
 
@@ -58,24 +100,25 @@ export default function Oferty() {
       </div>
 
       <button className='dodajOferte' onClick={showModal}>Dodaj Oferte</button>
-            <div className='OfertyList'>
+
+      <div className='OfertyList'>
         {ofertyList.map((oferta, index) => (
           <div key={index} className='OfertaItem'>
-            <img src= '/Szafa.png'></img>
+            <img src={`https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME}.s3.amazonaws.com/${oferta.imageKey}`} />
             <h3>{oferta.nazwa}</h3>
             <p className='cena'>{oferta.cena} Zł</p>
-            {/* <p className='opis'>{oferta.opis}</p> */}
             <button className='Kup'>Dodaj do koszyka</button>
             <span className='szczegoly'>Szczególy</span>
           </div>
         ))}
       </div>
 
-
       <form onSubmit={handleSubmit}>
         <div className={`OfertaAddModal ${visible ? 'visible' : ''}`}>
           <div className='Photos'>
-            <div className='Photo1'></div>
+            <div className='Photo1'>
+              <input type='file' accept='image/*' onChange={handleFileChange} />
+            </div>
             <div className='Photo2'></div>
             <div className='Photo3'></div>
             <div className='Photo4'></div>
@@ -104,7 +147,9 @@ export default function Oferty() {
             value={formData.opis}
             onChange={handleChange}
           />
-          <button type='submit' className='SubmitOferta'>Dodaj Oferte</button>
+          <button type='submit' className='SubmitOferta' disabled={uploading}>
+            {uploading ? "Dodawanie..." : "Dodaj Ogłoszenie"}
+          </button>
         </div>
       </form>
     </div>
