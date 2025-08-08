@@ -13,7 +13,10 @@ body {
     height: 100vh;
     width: 100vw;
     background-color: black;
-    border: 2px solid red;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    
 }
 .dodajOferte{
     position: absolute;
@@ -157,59 +160,83 @@ border: 2px solid white;
   color: black;
   border: 2px solid black;
 }
-.OfertaItem{
-  
-}
 .OfertyList{
-  border: 2px solid rgb(255, 255, 255);
-  height: 55vh;
-  width: 25vw;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
-  justify-content: center;
-  text-align: center;
-}
-.OfertaItem h3{
-  position: absolute;
-  top:50%;
-  left: 20px;
-  font-family: 'HankenGrotesk';
-  letter-spacing: 2px;
-  font-size: 2rem;
-}
-.OfertaItem p[class = 'cena']{
-  position: absolute;
-  top: 52%;
-  right: 20px;
-  font-weight: 800;
-  font-family: 'HankenGrotesk';
-  letter-spacing: 2px;
-  font-size: 1.4rem;
-}
-.OfertaItem p[class = 'opis']{
-  position: absolute;
-  bottom: 90px;
+  top: 30%;
+  height: auto; 
+  overflow: visible;
+  width: 30vw;
+  flex-wrap: wrap;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
   
-  font-weight: 800;
-  font-family: 'HankenGrotesk';
-  letter-spacing: 2px;
+  
 }
-.Kup{
+.OfertaItem{
+  width: 100%;
+  height: 60vh;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+}
+.OfertaPhoto1{
+  margin-top: 10px;
+  border-radius: 10px;
+  width: 80%;
+  height: 50%;
+  flex: 1;
+}
+.detailsContainer{
+  width: 100%;
+  display: flex;
+  position: relative;
+  flex: 1;
+  
+}
+.nazwa1{
+  position: absolute;
+  top: 30px;
+  left: 10px;
+  font-family: "HankenGrotesk";
+  font-size: 1.5vw;
+  letter-spacing: 1.5px;
+}
+.cena1{
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  font-family: "HankenGrotesk";
+  font-size: 1.5vw;
+  letter-spacing: 1.5px;
+}
+.kup{
+  position: absolute;
+  top: 40%;
+  left: 10px;
   height: 5vh;
   width: 8vw;
-  background-color: white;
-  position: absolute;
-  bottom: 140px;
-  left: 20px;
-  color: black;
+  background-color: transparent;
+  border: 1px solid white;
+  color: rgb(255, 253, 253);
   font-family: 'HankenGrotesk';
   font-weight: 800;
   font-size: 1rem;
   text-align: center;
   border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
+.kup:hover{
+  background-color: white;
+  color: black;
+}
+
 .szczegoly{
   position: absolute;
   bottom: 10px;
@@ -217,13 +244,4 @@ border: 2px solid white;
   font-size: 1.5rem;
   font-weight: 800;
   font-family: "HankenGrotesk";
-}
-.OfertaItem img{
-  height: 25vh;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%);
-  top: 10px;
-  border-radius: 20px;
-  border: 2px solid white;
-}
+} 

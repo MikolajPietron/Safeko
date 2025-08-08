@@ -32,7 +32,7 @@ export async function GET(){
   try{
     await connectDB();
 
-    const oferty = await Oferta.find({}).sort({createdAt: -1});
+    const oferty = await Oferta.find({}).sort({createdAt: 1});
 
     return new Response(JSON.stringify(oferty),  {
       status:200,

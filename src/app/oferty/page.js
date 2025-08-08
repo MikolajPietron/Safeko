@@ -9,7 +9,7 @@ export default function Oferty() {
     nazwa: '',
     cena: '',
     opis: '',
-    imageKey: '' // 👈 this will store the uploaded image name/key
+    imageKey: '' 
   });
   const [ofertyList, setOfertyList] = useState([]);
   const [file, setFile] = useState(null);
@@ -75,13 +75,15 @@ export default function Oferty() {
           imageKey: uploadedFileName,
         }),
       });
-
+      
       if (res.ok) {
-        alert('Oferta dodana!');
-        setFormData({ nazwa: '', cena: '', opis: '', imageKey: '' });
-        setFile(null);
-        setVisible(false);
-      } else {
+  alert('Oferta dodana!');
+  setOfertyList(prev => [...prev, { ...formData, imageKey: uploadedFileName }]); // append
+  setFormData({ nazwa: '', cena: '', opis: '', imageKey: '' });
+  setFile(null);
+  setVisible(false);
+}
+ else {
         alert('Wystąpił błąd przy dodawaniu oferty.');
       }
     } catch (err) {
@@ -104,11 +106,13 @@ export default function Oferty() {
       <div className='OfertyList'>
         {ofertyList.map((oferta, index) => (
           <div key={index} className='OfertaItem'>
-            <img src={`https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME}.s3.amazonaws.com/${oferta.imageKey}`} />
-            <h3>{oferta.nazwa}</h3>
-            <p className='cena'>{oferta.cena} Zł</p>
-            <button className='Kup'>Dodaj do koszyka</button>
-            <span className='szczegoly'>Szczególy</span>
+            <img src={`https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME}.s3.amazonaws.com/${oferta.imageKey}`} className='OfertaPhoto1'/>
+            <div className='detailsContainer'>
+            <h3 className='nazwa1'>{oferta.nazwa}</h3>
+            <p className='cena1'>{oferta.cena} Zł</p>
+            <button className='kup'>Dodaj do koszyka</button>
+            <span className='szczegoly'>Szczególy &rsaquo;</span>
+            </div>
           </div>
         ))}
       </div>
