@@ -17,7 +17,7 @@ async function uploadFileToS3(fileBuffer, originalName) {
     Bucket: process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME,
     Key: finalFileName,
     Body: fileBuffer,
-    ContentType: "image/jpg", // You could make this dynamic later
+    ContentType: "image/jpg", 
   };
 
   const command = new PutObjectCommand(params);

@@ -4,6 +4,7 @@ import UserIcon from '@mui/icons-material/Person';
 import { useState, useEffect } from 'react';
 
 export default function Oferty() {
+  // USESTATY ------------------ USESTATY ------------------ USESTATY ------------------ USESTATY ------------------ USESTATY ------------------ USESTATY ------------------
   const [visible, setVisible] = useState(false);
   const [formData, setFormData] = useState({
     nazwa: '',
@@ -14,7 +15,7 @@ export default function Oferty() {
   const [ofertyList, setOfertyList] = useState([]);
   const [file, setFile] = useState(null);
   const [uploading, setUploading] = useState(false);
-
+  // FETCH DLA DETALI OFERT Z MONGODB ------------------------ FETCH DLA DETALI OFERT Z MONGODB ------------------------ FETCH DLA DETALI OFERT Z MONGODB ------------------------
   useEffect(() => {
     async function fetchOferty() {
       const res = await fetch('/api/oferta');
@@ -23,7 +24,7 @@ export default function Oferty() {
     }
     fetchOferty();
   }, []);
-
+  // MODAL SHOWN ------------- // MODAL SHOWN ------------- // MODAL SHOWN ------------- // MODAL SHOWN ------------- // MODAL SHOWN ------------- // MODAL SHOWN -------------
   function showModal() {
     setVisible(prev => !prev);
   }
@@ -35,7 +36,7 @@ export default function Oferty() {
   function handleFileChange(e) {
     setFile(e.target.files[0]);
   }
-
+  //SUBMIT DLA FORM WYSYŁANIE NAJPIERW DO S3 POTEM DO MONGODB ------------------------------------ SUBMIT DLA FORM WYSYŁANIE NAJPIERW DO S3 POTEM DO MONGODB ------------------------------------
   async function handleSubmit(e) {
     e.preventDefault();
     setUploading(true);
@@ -78,7 +79,7 @@ export default function Oferty() {
       
       if (res.ok) {
   alert('Oferta dodana!');
-  setOfertyList(prev => [...prev, { ...formData, imageKey: uploadedFileName }]); // append
+  setOfertyList(prev => [...prev, { ...formData, imageKey: uploadedFileName }]); 
   setFormData({ nazwa: '', cena: '', opis: '', imageKey: '' });
   setFile(null);
   setVisible(false);
