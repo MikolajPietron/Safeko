@@ -1,11 +1,28 @@
+'use client';
 import './login.css'
+import { signIn } from 'next-auth/react';
+
 export default function Login(){
     return(
         <div className='LoginContainer'>
             <div className='LoginForm'>
-                <img src='SafekoLogin.jpg'></img>
-                <input type='text' placeholder='email'></input>
-                <input type='password' placeholder='haslo'></input>
+                <img src= '/2.svg' className='LogoLogin'></img>
+                
+
+                <input type='text' placeholder='E-mail'></input>
+                <input type='password' placeholder='Haslo'></input>
+                
+                <button className='Login' type='submit'>Zaloguj</button>
+                <button
+                    className='GoogleLogin'
+                    type='button'
+                    onClick={() => signIn('google', {callbackUrl: '/oferty'})}
+                >
+                 Zaloguj się przez Google
+                </button>
+                
+                
+                
                 
             </div>
         </div>

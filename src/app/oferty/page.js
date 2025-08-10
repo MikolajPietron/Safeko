@@ -2,7 +2,7 @@
 import './oferty.css';
 import UserIcon from '@mui/icons-material/Person';
 import { useState, useEffect } from 'react';
-import {useSession, signIn} from 'next-auth/react';
+import {useSession, signIn, signOut} from 'next-auth/react';
 
 export default function Oferty() {
   // USESTATY ------------------ USESTATY ------------------ USESTATY ------------------ USESTATY ------------------ USESTATY ------------------ USESTATY ------------------
@@ -100,9 +100,30 @@ export default function Oferty() {
   return (
     <div className="OfertyPageContainer">
       <div className="header">
-        <img src="Safeko-header-logo.png" className="header-logo" />
-        <UserIcon style={{ fontSize: 50, color: "Black" }} className='UserIcon' />
-      </div>
+        {session && (
+          <button
+            className='Logout'
+            type='button'
+            onClick={() => signOut({ callbackUrl: '/oferty' })}
+          >
+            Wyloguj się
+          </button>
+        )}
+  <img src="Safeko-header-logo.png" className="header-logo" />
+  {session?.user ? (
+    <>
+      <img src={session.user.image}
+        alt={session.user.name}
+        className="UserProfileImage">
+        
+      </img>
+      
+      <span className="UserName">{session.user.name}</span>
+    </>
+  ) : (
+    <UserIcon style={{ fontSize: 50, color: "Black" }} className='UserIcon' />
+  )}
+</div>
       {session ? (
         <button className='dodajOferte' onClick={showModal}>Dodaj Oferte</button>
       ) : (
