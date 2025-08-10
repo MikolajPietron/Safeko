@@ -67,7 +67,7 @@ export default function Oferty() {
         }
       }
 
-      // 2. Send all data (including image key) to MongoDB
+      // 2. Send all data (including image key) to MongoDB2
       const res = await fetch('/api/oferta', {
         method: 'POST',
         headers: {
