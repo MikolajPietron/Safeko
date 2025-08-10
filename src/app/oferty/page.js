@@ -2,9 +2,11 @@
 import './oferty.css';
 import UserIcon from '@mui/icons-material/Person';
 import { useState, useEffect } from 'react';
+import {useSession, signIn} from 'next-auth/react';
 
 export default function Oferty() {
   // USESTATY ------------------ USESTATY ------------------ USESTATY ------------------ USESTATY ------------------ USESTATY ------------------ USESTATY ------------------
+  const {data: session, status } = useSession();
   const [visible, setVisible] = useState(false);
   const [formData, setFormData] = useState({
     nazwa: '',
@@ -101,8 +103,12 @@ export default function Oferty() {
         <img src="Safeko-header-logo.png" className="header-logo" />
         <UserIcon style={{ fontSize: 50, color: "Black" }} className='UserIcon' />
       </div>
-
-      <button className='dodajOferte' onClick={showModal}>Dodaj Oferte</button>
+      {session ? (
+        <button className='dodajOferte' onClick={showModal}>Dodaj Oferte</button>
+      ) : (
+         <button className='dodajOferte' onClick={() => signIn()}>Zaloguj się, aby dodać ofertę</button>
+      )}
+      
 
       <div className='OfertyList'>
         {ofertyList.map((oferta, index) => (
