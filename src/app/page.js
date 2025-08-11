@@ -33,9 +33,9 @@ export default function Home() {
           <LightRays
             raysOrigin="bottom-center"
             raysColor="#ffffffff"
-            raysSpeed={1.2}
+            raysSpeed={0.6}
             lightSpread={0.8}
-            rayLength={0.8}
+            rayLength={0.6}
             followMouse={true}
             mouseInfluence={0.4}
             noiseAmount={0.1}
@@ -44,18 +44,21 @@ export default function Home() {
       />
       </div>
       <div className="ButtonsContainer">
-        <div className="LoginContainer">
+        {/* <div className="LoginContainer">
           <KeyboardDoubleArrowRightIcon style={{fontSize:50,color:"white"}}/>
-          <button className="LoginButton">Log in</button>
-        </div>
-        <div className="OffersContainer">
+          
+        </div> */}
+        <button className="LoginButton">Zaloguj się</button>
+        {/* <div className="OffersContainer">
           <KeyboardDoubleArrowRightIcon style={{fontSize:50,color:"white"}}/>
-          <button onClick ={goToOffers} className="OffersButton">Offers</button>
-        </div>
-        <div className="GroupsContainer">
+          
+        </div> */}
+        <button onClick ={goToOffers} className="OffersButton">Zobacz oferty</button>
+        {/* <div className="GroupsContainer">
           <KeyboardDoubleArrowRightIcon style={{fontSize:50,color:"white"}}/>
-          <button className="GroupsButton">Groups</button>
-        </div>
+          
+        </div> */}
+        <button className="GroupsButton">Grupy</button>
       </div>
     </div>
     
