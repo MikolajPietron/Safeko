@@ -54,7 +54,7 @@ export default function Oferty() {
         const uploadRes = await fetch('/api/s3-upload', {
           method: 'POST',
           body: uploadForm,
-        });
+        }); 
 
         const uploadResult = await uploadRes.json();
 
@@ -79,7 +79,7 @@ export default function Oferty() {
         }),
       });
       
-      if (res.ok) {
+      if (res.ok) {    
   alert('Oferta dodana!');
   setOfertyList(prev => [...prev, { ...formData, imageKey: uploadedFileName }]); 
   setFormData({ nazwa: '', cena: '', opis: '', imageKey: '' });
