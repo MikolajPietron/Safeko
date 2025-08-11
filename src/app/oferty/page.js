@@ -3,6 +3,7 @@ import './oferty.css';
 import UserIcon from '@mui/icons-material/Person';
 import { useState, useEffect } from 'react';
 import {useSession, signIn, signOut} from 'next-auth/react';
+import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 
 export default function Oferty() {
   // USESTATY ------------------ USESTATY ------------------ USESTATY ------------------ USESTATY ------------------ USESTATY ------------------ USESTATY ------------------
@@ -149,7 +150,8 @@ export default function Oferty() {
         <div className={`OfertaAddModal ${visible ? 'visible' : ''}`}>
           <div className='Photos'>
             <div className='Photo1'>
-              <input type='file' accept='image/*' onChange={handleFileChange} />
+              <input  className = 'Photo1input'type='file' accept='image/*' onChange={handleFileChange} />
+              <AddPhotoAlternateIcon className='addPhotoIcon' style={{fontSize:60, color:'black'}}></AddPhotoAlternateIcon>
             </div>
             <div className='Photo2'></div>
             <div className='Photo3'></div>
@@ -160,6 +162,7 @@ export default function Oferty() {
             name='nazwa'
             placeholder='Nazwa'
             className='nazwa'
+            autoCorrect='false'
             value={formData.nazwa}
             onChange={handleChange}
           />

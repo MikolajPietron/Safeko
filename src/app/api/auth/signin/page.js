@@ -14,12 +14,14 @@ export default function Login(){
                 
                 <button className='Login' type='submit'>Zaloguj</button>
                 <button
-                    className='GoogleLogin'
+                    className='google-btn'
                     type='button'
                     onClick={() => signIn('google', {callbackUrl: '/oferty'})}
                 >
-                 Zaloguj się przez Google
+                <img src="/googleIcon.svg" alt="Google logo" />
+                 Sign in with google
                 </button>
+                
                 
                 
                 
