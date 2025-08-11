@@ -16,6 +16,9 @@ export default function Home() {
   const goToOffers = () =>{
     router.push("/oferty");
   }
+  const goToLogin = () =>{
+    router.push("api/auth/signin");
+  }
   return (
     <div className="PageContainer">
       <div className="MainPageText">Get ready for <br/> new marketplace <br/> experience_</div>
@@ -48,17 +51,19 @@ export default function Home() {
           <KeyboardDoubleArrowRightIcon style={{fontSize:50,color:"white"}}/>
           
         </div> */}
-        <button className="LoginButton">Zaloguj się</button>
+        <button onClick ={goToOffers} className="OffersButton">Zobacz oferty</button>
+        <button onClick = {goToLogin} className="LoginButton">Zaloguj się</button>
+        <button className="GroupsButton">Grupy</button>
         {/* <div className="OffersContainer">
           <KeyboardDoubleArrowRightIcon style={{fontSize:50,color:"white"}}/>
           
         </div> */}
-        <button onClick ={goToOffers} className="OffersButton">Zobacz oferty</button>
+        
         {/* <div className="GroupsContainer">
           <KeyboardDoubleArrowRightIcon style={{fontSize:50,color:"white"}}/>
           
         </div> */}
-        <button className="GroupsButton">Grupy</button>
+        
       </div>
     </div>
     
