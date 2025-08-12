@@ -21,6 +21,8 @@ export default function Oferty() {
   const [ofertyList, setOfertyList] = useState([]);
   const [file, setFile] = useState(null);
   const [uploading, setUploading] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
   // FETCH DLA DETALI OFERT Z MONGODB ------------------------ FETCH DLA DETALI OFERT Z MONGODB ------------------------ FETCH DLA DETALI OFERT Z MONGODB ------------------------
   useEffect(() => {
     async function fetchOferty() {
@@ -136,21 +138,29 @@ export default function Oferty() {
       )}
       
       <div className='Wyszukiwarka'>
-        <FiltryMenu></FiltryMenu>
+        <FiltryMenu setSelectedCategory={setSelectedCategory}></FiltryMenu>
       </div>
       <div className='OfertyList'>
-        {ofertyList.map((oferta, index) => (
-          <div key={index} className='OfertaItem'>
-            <img src={`https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME}.s3.amazonaws.com/${oferta.imageKey}`} className='OfertaPhoto1'/>
-            <div className='detailsContainer'>
-            <h3 className='nazwa1'>{oferta.nazwa}</h3>
-            <p className='cena1'>{oferta.cena} Zł</p>
-            <button className='kup'>Dodaj do koszyka</button>
-            <span className='szczegoly'>Szczególy &rsaquo;</span>
-            </div>
-          </div>
-        ))}
+  {ofertyList
+    .filter(oferta => !selectedCategory || oferta.kategoria === selectedCategory)
+    .map((oferta, index) => (
+      <div key={index} className='OfertaItem'>
+        <img 
+          src={`https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME}.s3.amazonaws.com/${oferta.imageKey}`} 
+          className='OfertaPhoto1'
+        />
+        <div className='detailsContainer'>
+          <h3 className='nazwa1'>{oferta.nazwa}</h3>
+          <p className='cena1'>{oferta.cena} Zł</p>
+          <button className='kup'>Dodaj do koszyka</button>
+          <span className='szczegoly'>Szczególy &rsaquo;</span>
+        </div>
       </div>
+    ))
+  }
+</div>
+
+
 
       <form onSubmit={handleSubmit}>
         <div className={`OfertaAddModal ${visible ? 'visible' : ''}`}>
