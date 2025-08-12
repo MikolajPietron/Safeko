@@ -4,6 +4,8 @@ import Oferta from '@/models/Oferta';
 export async function POST(request) {
   const body = await request.json();
 
+  console.log('Received oferta data:', body);
+
   try {
     await connectDB();
 
@@ -11,7 +13,8 @@ export async function POST(request) {
       nazwa: body.nazwa,
       cena: body.cena,
       opis: body.opis,
-      imageKey: body.imageKey
+      imageKey: body.imageKey,
+      kategoria: body.kategoria
     });
 
     await oferta.save();

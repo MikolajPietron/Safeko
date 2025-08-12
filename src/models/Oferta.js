@@ -5,6 +5,7 @@ const OfertaSchema = new mongoose.Schema({
   cena: String,
   opis: String,
   imageKey: String,
+  kategoria : String,
 }, { timestamps: true });
 
 export default mongoose.models.Oferta || mongoose.model('Oferta', OfertaSchema);

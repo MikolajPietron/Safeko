@@ -1,0 +1,94 @@
+@font-face {
+  font-family: 'HankenGrotesk';
+  src: url('/fonts/HankenGrotesk-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.hamburger-container {
+  position: relative;
+  width: 50%;
+  height: 9%;
+  border: 3px solid rgb(0, 0, 0);
+  border-radius: 20px;
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  background: white;
+}
+
+.hamburger-btn {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background-color: transparent;
+  border: 2px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-family: 'HankenGrotesk', sans-serif;
+  font-size: 1vw;
+  position: relative;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.arrowDownModal, .closeIconModal {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+.menu-panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: transparent;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10vh;
+  border-radius: 20px;
+  gap: 20px;
+  z-index: 1000;
+
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.menu-panel.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.menu-panel button {
+  height: 70%;
+  width: 25%;
+  background-color: transparent;
+  border: 3px solid black;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'HankenGrotesk', sans-serif;
+  font-size: 1rem;
+  gap: 10px;
+  padding: 0 8px;
+  transition: background-color 0.2s ease;
+}
+
+
+/* Optionally style icons inside buttons */
+.homeIcon, .carIcon, .watchIcon {
+  pointer-events: none; /* so clicks register on the button */
+}

@@ -4,6 +4,8 @@ import UserIcon from '@mui/icons-material/Person';
 import { useState, useEffect } from 'react';
 import {useSession, signIn, signOut} from 'next-auth/react';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
+import CategoryMenu from '@/components/HamburgerCategory/CategoryMenu';
+import FiltryMenu from '@/components/HamburgerFiltry/Filtry';
 
 export default function Oferty() {
   // USESTATY ------------------ USESTATY ------------------ USESTATY ------------------ USESTATY ------------------ USESTATY ------------------ USESTATY ------------------
@@ -13,7 +15,8 @@ export default function Oferty() {
     nazwa: '',
     cena: '',
     opis: '',
-    imageKey: '' 
+    imageKey: '',
+    kategoria: ''
   });
   const [ofertyList, setOfertyList] = useState([]);
   const [file, setFile] = useState(null);
@@ -76,6 +79,7 @@ export default function Oferty() {
         },
         body: JSON.stringify({
           ...formData,
+          
           imageKey: uploadedFileName,
         }),
       });
@@ -131,7 +135,9 @@ export default function Oferty() {
          <button className='dodajOferte' onClick={() => signIn()}>Zaloguj się, aby dodać ofertę</button>
       )}
       
-
+      <div className='Wyszukiwarka'>
+        <FiltryMenu></FiltryMenu>
+      </div>
       <div className='OfertyList'>
         {ofertyList.map((oferta, index) => (
           <div key={index} className='OfertaItem'>
@@ -157,6 +163,8 @@ export default function Oferty() {
             <div className='Photo3'></div>
             <div className='Photo4'></div>
           </div>
+          <div className='nazwacenaopis'>
+
           <input
             type='text'
             name='nazwa'
@@ -166,6 +174,7 @@ export default function Oferty() {
             value={formData.nazwa}
             onChange={handleChange}
           />
+
           <input
             type='text'
             name='cena'
@@ -174,6 +183,7 @@ export default function Oferty() {
             value={formData.cena}
             onChange={handleChange}
           />
+         
           <input
             type='text'
             name='opis'
@@ -182,6 +192,14 @@ export default function Oferty() {
             value={formData.opis}
             onChange={handleChange}
           />
+           <CategoryMenu
+        selectedCategory={formData.kategoria}
+        setSelectedCategory={(cat) =>{
+          console.log('Selected category:', cat);
+          setFormData({ ...formData, kategoria: cat })
+        }}
+      />
+          </div>
           <button type='submit' className='SubmitOferta' disabled={uploading}>
             {uploading ? "Dodawanie..." : "Dodaj Ogłoszenie"}
           </button>
