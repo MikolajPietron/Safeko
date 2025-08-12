@@ -6,8 +6,12 @@ import {useSession, signIn, signOut} from 'next-auth/react';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import CategoryMenu from '@/components/HamburgerCategory/CategoryMenu';
 import FiltryMenu from '@/components/HamburgerFiltry/Filtry';
+import { useRouter } from 'next/navigation';
+
 
 export default function Oferty() {
+  const router = useRouter();
+
   // USESTATY ------------------ USESTATY ------------------ USESTATY ------------------ USESTATY ------------------ USESTATY ------------------ USESTATY ------------------
   const {data: session, status } = useSession();
   const [visible, setVisible] = useState(false);
@@ -134,7 +138,7 @@ export default function Oferty() {
       {session ? (
         <button className='dodajOferte' onClick={showModal}>Dodaj Oferte</button>
       ) : (
-         <button className='dodajOferte' onClick={() => signIn()}>Zaloguj się, aby dodać ofertę</button>
+         <button className='dodajOferte' onClick={() => signIn()}>Dodaj Ofertę</button>
       )}
       
       <div className='Wyszukiwarka'>
@@ -153,7 +157,7 @@ export default function Oferty() {
           <h3 className='nazwa1'>{oferta.nazwa}</h3>
           <p className='cena1'>{oferta.cena} Zł</p>
           <button className='kup'>Dodaj do koszyka</button>
-          <span className='szczegoly'>Szczególy &rsaquo;</span>
+          <span className='szczegoly' onClick={() => router.push(`/ofertadetails/${oferta._id}`)}>Szczególy &rsaquo;</span>
         </div>
       </div>
     ))
