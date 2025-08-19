@@ -174,7 +174,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 18vh;
+    height: 25vh;
     border: 2px solid rgb(255, 255, 255);
     width: 50%;
     margin-top: 20px;
@@ -197,8 +197,51 @@
     font-size: 1.2vw;
     text-align: center;
 }
-
+.dalej2{
+    display: flex;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    height: 4vh;
+    width: 5vw;
+    border-radius: 5px;
+    background-color: white;
+    border: 2px solid white;
+    color: black;
+    font-family: "HankenGrotesk";
+    font-size: 1.2vw;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.dalej2:hover{
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
 .dalej{
+    display: flex;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    height: 4vh;
+    width: 5vw;
+    border-radius: 5px;
+    background-color: white;
+    border: 2px solid white;
+    color: black;
+    font-family: "HankenGrotesk";
+    font-size: 1.2vw;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.dalej2{
     display: flex;
     position: absolute;
     bottom: 10px;
@@ -222,14 +265,67 @@
     background-color: rgb(0, 0, 0);
     color: white;
 }
+.dalej3{
+    display: flex;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    height: 4vh;
+    width: 5vw;
+    border-radius: 5px;
+    background-color: white;
+    border: 2px solid white;
+    color: black;
+    font-family: "HankenGrotesk";
+    font-size: 1.2vw;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.dalej3:hover{
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+.dalej4{
+    display: flex;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    height: 4vh;
+    width: 5vw;
+    border-radius: 5px;
+    background-color: white;
+    border: 2px solid white;
+    color: black;
+    font-family: "HankenGrotesk";
+    font-size: 1.2vw;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.dalej4:hover{
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
 .photosModalContainer{
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 30vh;
+    height: 40vh;
     border: 2px solid rgb(255, 255, 255);
     width: 50%;
     margin-top: 20px;
+    opacity: 0;
+}
+.photosModalContainer.show {
+    opacity: 1;
+    transition: opacity 1s ease;
 }
 .photosModal{
     border: 2px solid pink;
@@ -245,7 +341,7 @@
     
     border: 2px solid rgb(255, 255, 255);
     width: 50vw;
-    height: 10vh;
+    height: 8vh;
     display: flex;
     flex-direction: row;
     gap: 25px;
@@ -288,12 +384,18 @@ position: relative;
     width: 50vw;
     display: flex;
     position: relative;
-    height: 25vh;
+    height: 35vh;
     flex-direction: column;
     margin-top: 20px;
+    opacity: 0;
+
+}
+.tytulModal.show{
+    opacity: 1;
+    transition: opacity 1s ease;
 }
 .tytulModalText{
-    height: 10vh;
+    height: 8vh;
     display: flex;
     flex-direction: row;
     gap: 25px;
@@ -305,9 +407,10 @@ position: relative;
 }
 .tytulModalContent{
     width: 50vw;
+    height: 20vh;
     position: relative;
     justify-content: center;
-    height: 20vh;
+    
     display: flex;
     flex-direction: row;
     place-items: center;
@@ -334,6 +437,12 @@ position: relative;
     height: 10vw;
     border: 2px solid rgb(255, 255, 255);
     place-items: center;
+    opacity: 0;
+
+}
+.cenaModal.show{
+    opacity: 1;
+    transition: opacity 1s ease;
 }
 .cenaModalText{
     width: 100%;

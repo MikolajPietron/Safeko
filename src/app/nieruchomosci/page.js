@@ -11,19 +11,31 @@ import TuneIcon from '@mui/icons-material/Tune';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import FormatColorTextIcon from '@mui/icons-material/FormatColorText';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import { useRouter } from 'next/navigation';
 
 
 export default function Nieruchomosci() {
 
   const [isShownKontakt, setShownKontakt] = useState(false);
   const [isShownMetraz, setShownMetraz] = useState(false);
-  
+  const [isShownPhotos, setShownPhotos] = useState(false);
+  const [isShownTytul, setShownTytul] = useState(false);
+  const [isShownCena, setShownCena] = useState(false);
 
   function showKontaktModal(){
     setShownKontakt(true);
   }
   function showMetrazModal(){
     setShownMetraz(true);
+  }
+  function showPhotosModal(){
+    setShownPhotos(true);
+  }
+  function showTytulModal(){
+    setShownTytul(true);
+  }
+  function showCenaModal(){
+    setShownCena(true);
   }
   const [formData, setFormData] = useState({
   typ: '',           // mieszkanie / dom / działka
@@ -41,7 +53,7 @@ export default function Nieruchomosci() {
 
   const [file, setFile] = useState(null);
   const [uploading, setUploading] = useState(false);
-
+  const router = useRouter();
   // handlers
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -175,6 +187,7 @@ export default function Nieruchomosci() {
         </div>
         </div>
         <div className={`metrazModalContainer ${isShownMetraz ? "show" : ""}`}>
+          <button className="dalej2"  type = "button"onClick={showPhotosModal}>Dalej</button>
           <div className="metrazModalText">
           <TuneIcon style={{fontSize:40, color:"white"}}/>
           <h1>GŁÓWNE INFORMACJE</h1>
@@ -184,8 +197,9 @@ export default function Nieruchomosci() {
           <input type="number" name="liczbaPokoi" className="liczbapokoi" placeholder="Liczba pokoi" value={formData.liczbaPokoi} onChange={handleChange} />
         </div>
         </div>
-        
-        <div className="photosModalContainer">
+
+        <div className={`photosModalContainer ${isShownPhotos ? "show" : ""}`}>
+          <button type="button" className="dalej3" onClick={showTytulModal}>Dalej</button>
           <div className="photosModalText">
           <AddAPhotoIcon style={{fontSize:40, color:"white"}}/>
           <h1>DODAJ ZDJĘCIA</h1>
@@ -205,8 +219,9 @@ export default function Nieruchomosci() {
           
         </div>
         </div>
-        
-        <div className="tytulModal">
+
+        <div className={`tytulModal ${isShownTytul ? "show" : ""}`}>
+          <button type="button" className="dalej4" onClick={showCenaModal}>Dodaj</button>
           <div className="tytulModalText">
             <FormatColorTextIcon style={{fontSize:40, color:"white"}}/>
             <h1>TYTUŁ I OPIS</h1>
@@ -218,7 +233,7 @@ export default function Nieruchomosci() {
 
            
         </div>
-        <div className="cenaModal">
+        <div className={`cenaModal ${isShownCena ? "show" : ""}`}>
           <div className="cenaModalText">
             <AttachMoneyIcon style={{fontSize:40, color:"white"}}/>
             <h1>CENA</h1>
