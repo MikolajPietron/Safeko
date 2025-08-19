@@ -10,12 +10,19 @@ export async function POST(request) {
     await connectDB();
 
     const oferta = new Oferta({
-      nazwa: body.nazwa,
-      cena: body.cena,
-      opis: body.opis,
-      imageKey: body.imageKey,
-      kategoria: body.kategoria
-    });
+  typ: body.typ,
+  imie: body.imie,
+  email: body.email,
+  numer: body.numer,
+  dodanePrzez: body.dodanePrzez,
+  metraz: body.metraz,
+  liczbaPokoi: body.liczbaPokoi,
+  tytul: body.tytul,
+  opis: body.opis,
+  cena: body.cena,
+  imageKey: body.imageKey
+});
+
 
     await oferta.save();
 

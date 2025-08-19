@@ -21,11 +21,18 @@ export default function OfertaDetailsPage() {
 
   return (
     <div>
-      <h1>{oferta.nazwa}</h1>
+      <h1>{oferta.tytul}</h1>
       <p>{oferta.opis}</p>
+      <p>{oferta.metraz} m2</p>
+      <p>{oferta.liczbaPokoi} pokoi</p>
+      <p>{oferta.dodanePrzez}</p>
+      <p>{oferta.imie}</p>
+      <p>{oferta.email}</p>
+      <p>{oferta.numer}</p>
+      <p>{oferta.cena}</p>
       <img
         src={`https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME}.s3.amazonaws.com/${oferta.imageKey}`}
-        alt={oferta.nazwa}
+        alt={oferta.tytul}
         style={{ maxWidth: '400px' }}
       />
       <p>{oferta.cena} zł</p>

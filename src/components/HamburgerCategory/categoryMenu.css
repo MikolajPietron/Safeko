@@ -6,9 +6,9 @@
 }
 .hamburger-container {
   position: relative;
-  width: 50%;
-  height: 9%;
-  border: 3px solid rgb(0, 0, 0);
+  width: 100%;
+  height: 100%;
+  
   border-radius: 20px;
   display: flex;
   text-align: left;
@@ -21,7 +21,7 @@
   height: 100%;
   border-radius: 20px;
   background-color: transparent;
-  border: 2px solid red;
+  border: none;
   display: flex;
   justify-content: center;
   align-items: center;

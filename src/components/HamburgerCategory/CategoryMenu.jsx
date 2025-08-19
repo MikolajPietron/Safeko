@@ -34,7 +34,7 @@ export default function CategoryMenu({ selectedCategory, setSelectedCategory }) 
         }
       </button>
 
-      <div className={`menu-panel ${open ? 'open' : ''}`}>
+      <div className="menu-panel">
         {categories.map(cat => (
           <button
             key={cat.name}

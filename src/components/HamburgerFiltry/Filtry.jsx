@@ -24,10 +24,10 @@ export default function Filtry({ setSelectedCategory }) {
                     <HomeIcon style={{ fontSize: 30, color: 'white' }} />
                 </button>
                 <button className='bizuteria' onClick={() => setSelectedCategory('Biżuteria')}>
-                    <DirectionsCarIcon style={{ fontSize: 30, color: 'white' }} />
+                    <WatchIcon style={{ fontSize: 30, color: 'white' }} />
                 </button>
                 <button className='samochody' onClick={() => setSelectedCategory('Samochody')}>
-                    <WatchIcon style={{ fontSize: 30, color: 'white' }} />
+                    <DirectionsCarIcon style={{ fontSize: 30, color: 'white' }} />
                 </button>
                 <button  className = 'wszystkie' onClick={() => setSelectedCategory(null)}>
                     <CancelIcon style={{ fontSize: 30, color: 'white' }} />

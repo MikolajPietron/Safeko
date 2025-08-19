@@ -4,108 +4,77 @@
   font-weight: normal;
   font-style: normal;
 }
-.Logout{
-  position: absolute;
-  left: 50%;
-  z-index: 1000;
+
+
+.OfertaAddContainer {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-color: rgba(0, 0, 0);
+ 
+  justify-content: center;
+  
 }
-body {
-  font-family: 'NeueMontreal', sans-serif;
+.wybierzOferteContainer{
+    height: 35vh;
+    flex-direction: column;
+    width: 60vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 50px;
+    
+    
 }
-.UserProfileImage{
-  position: absolute;
-  right: 20px;
-  height: 40px;
-  width: 40px;
-  top: 10px;
-  border-radius: 10px ;
-  border: 2px solid black;
+.wybierzOferteText{
+    display: flex;
+    
+    font-size: 1.7vw;
+    font-family: "HankenGrotesk";
+    
+    
 }
-.UserName{
-  position: absolute;
-  right: 70px;
-  top: 20px;
-  color: black;
-  font-weight: 800;
-  font-family: 'HankenGrotesk';
-}
-.OfertyPageContainer{
-    height: 100vh;
-    width: 100vw;
-    background-color: black;
+.wybierzOferteButtons{
+   
+    align-self: center;
+    width: 80%;
+    height: 80%;
     justify-content: center;
     align-items: center;
     display: flex;
+    flex-direction: row;
+    gap: 50px;
     
+
 }
-.dodajOferte{
-    position: absolute;
-    right: 80px;
-    border-radius: 20px;
-    top: 120px;
+.wybierzOferteButtons button{
+    height: 15vh;
+    width: 10vw;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    text-align: center;
+    justify-content: center;
+    gap: 30px;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 15px;
+    font-family: "HankenGrotesk";
+    font-size: 1vw;
+    transition: all 0.3s ease;
+
+}
+.wybierzOferteButtons button:hover{
+    scale: 1.1;
     background-color: white;
     color: black;
-    font-family: 'HankenGrotesk';
-    font-weight: 800;
-    font-size: 1rem;
-    height: 5vh;
-    width: 9%;
-    transition: all 0.3s ease;
     cursor: pointer;
 }
-.dodajOferte:hover{
-    background-color: transparent;
-    color: white;
-}
-.header{
-  position: absolute;
-  display: flex;
-  top: 0;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  height: 60px;
-  width: 100%;
-  background-color: white;
-}
-.header-logo{
-  position: absolute;
-  width: 200px;
-  height: 90px;
-  left: -10px;
-  top: -15px;
-  
-}
-.UserIcon{
-  position: absolute;
-  right: 10px;
-  top: 5px;
-  
-  
-}
-.OfertaAddModal {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-  height: 80vh;
-  width: 70vw;
-  position: fixed;
-  left: 50%;
-  bottom: 0;
-  transform: translate(-50%, 100%); /* Start hidden (off screen) */
-  background-color: rgb(255, 255, 255,  0.9);
-  opacity: 0;
-  border-radius: 20px;
-  transition: transform 0.5s ease, opacity 0.5s ease;
-  z-index: 999;
-  pointer-events: none; /* Prevent interaction when hidden */
-  padding: 20px;
-}
-
-.OfertaAddModal.visible {
-  transform: translate(-50%, -5%); /* Slide up into view */
-  opacity: 1;
-  pointer-events: auto;
-}
+/* .goToNieruchomosci .MuiSvgIcon-root{
+    color: red;
+} */
 
 .Photos{
 height: 60%;
@@ -308,44 +277,7 @@ position: relative;
   height: 7vh;
   border-radius: 17px;
 }
-.mainInfo{
-  display: flex;
-  border: 2px solid green;
-  width: 100%;
-  height: 90%;
-  gap: 20px;
-  flex-direction: column;
-  margin-top: 90px;
-}
-.OfertaAddModal input[class = 'nazwa'],
-.OfertaAddModal input[class = 'cena'],
-.OfertaAddModal input[class = 'opis'],
-.OfertaAddModal input[class = 'lokalizacja']{
-    width: 100%;
-    border-radius: 20px;
-    height: 11%;
-    border: none;
-    border: 3px solid black;
-    background-color: rgb(255, 255, 255);
-    font-weight: 800;
-    font-family: 'HankenGrotesk';
-    font-size: 1vw;
-    color: black;
-    justify-content: center;
-    align-items: center;
-    padding-left: 20px;
 
-}
-.houseInfo{
-  border: 2px solid rgb(0, 255, 213);
-  display: flex;
-  width: 50%;
-  gap: 20px;
-  flex-direction: column;
-  margin-top: 152px;
-  
-
-}
 .kategoriaMainInfo{
   width: 50%;
   display: flex;
