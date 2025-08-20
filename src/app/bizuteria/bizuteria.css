@@ -13,7 +13,7 @@
     justify-content: flex-start; /* let it grow from top */
     min-height: 100vh; /* at least full viewport */
     width: 100vw;
-    
+    background-color: black;
     overflow-y: auto; /* enable vertical scrolling */
 }
 
