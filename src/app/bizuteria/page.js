@@ -3,6 +3,7 @@
 import "./bizuteria.css";
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import HouseIcon from '@mui/icons-material/House';
+import UserIcon from '@mui/icons-material/Person';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import DeckIcon from '@mui/icons-material/Deck';
 import { useState } from "react";
@@ -14,6 +15,7 @@ import FormatColorTextIcon from '@mui/icons-material/FormatColorText';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import { useRouter } from 'next/navigation';
 import DiamondIcon from '@mui/icons-material/Diamond';
+import {useSession,signOut} from 'next-auth/react';
 export default function BizuteriaPage() {
   const [isShowDane, setShowDane] = useState(false);
   const [isShowKontakt, setShowKontakt] = useState(false);
@@ -21,6 +23,7 @@ export default function BizuteriaPage() {
   const [isShowTytul, setShowTytul] = useState(false);
   const [isShowCena, setShowCena] = useState(false);
 
+  const {data : session} = useSession();
 
 
     const [formData, setFormData] = useState({
@@ -131,6 +134,30 @@ export default function BizuteriaPage() {
 
   return (
     <div className="bizuteriaContainer">
+      <div className="header">
+              {session && (
+                <button
+                  className="Logout"
+                  type="button"
+                  onClick={() => signOut({ callbackUrl: '/oferty' })}
+                >
+                  Wyloguj się
+                </button>
+              )}
+              <img src="Safeko-header-logo.png" className="header-logo" />
+              {session?.user ? (
+                <>
+                  <img
+                    src={session.user.image}
+                    alt={session.user.name}
+                    className="UserProfileImage"
+                  />
+                  <span className="UserName">{session.user.name}</span>
+                </>
+              ) : (
+                <UserIcon style={{ fontSize: 50, color: 'Black' }} className="UserIcon" />
+              )}
+            </div>
       <form className="bizuteriaForm">
         <div className="coChceszZrobic">
           CO CHCESZ SPRZEDAĆ?

@@ -3,8 +3,9 @@ import { useState } from 'react';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import CategoryMenu from '@/components/HamburgerCategory/CategoryMenu';
 import { useRouter } from 'next/navigation';
+import UserIcon from '@mui/icons-material/Person';
 import './ofertyadd.css'; // reuse your CSS
-
+import {useSession} from 'next-auth/react';
 import HomeIcon from '@mui/icons-material/Home';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import WatchIcon from '@mui/icons-material/Watch';
@@ -17,7 +18,7 @@ export default function DodajOferte() {
     { name: "Samochody", icon: <DirectionsCarIcon className='carIcon' style={{color:'black', fontSize: 40, cursor: 'pointer'}} /> },
   ];
   const router = useRouter();
-  
+  const { data: session } = useSession();
 
   // state for the form
   const [formData, setFormData] = useState({
@@ -101,6 +102,30 @@ export default function DodajOferte() {
   return (
     <form onSubmit={handleSubmit}>
       <div className="OfertaAddContainer">
+        <div className="header">
+                {session && (
+                  <button
+                    className="Logout"
+                    type="button"
+                    onClick={() => signOut({ callbackUrl: '/oferty' })}
+                  >
+                    Wyloguj się
+                  </button>
+                )}
+                <img src="Safeko-header-logo.png" className="header-logo" />
+                {session?.user ? (
+                  <>
+                    <img
+                      src={session.user.image}
+                      alt={session.user.name}
+                      className="UserProfileImage"
+                    />
+                    <span className="UserName">{session.user.name}</span>
+                  </>
+                ) : (
+                  <UserIcon style={{ fontSize: 50, color: 'Black' }} className="UserIcon" />
+                )}
+              </div>
         <div className='wybierzOferteContainer'>
           <div className='wybierzOferteText'>
             <h2>Wybierz ofertę</h2>

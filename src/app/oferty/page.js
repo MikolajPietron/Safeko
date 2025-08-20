@@ -69,17 +69,18 @@ export default function Oferty() {
         ) : (
           <UserIcon style={{ fontSize: 50, color: 'Black' }} className="UserIcon" />
         )}
-      </div>
-
-      {session ? (
+        {session ? (
         <button className="dodajOferte" onClick={() => router.push('/dodajOferte')}>
-          Dodaj Ofertę
+          + Dodaj Ofertę
         </button>
       ) : (
         <button className="dodajOferte" onClick={() => signIn()}>
-          Dodaj Ofertę
+          + Dodaj Ofertę
         </button>
       )}
+      </div>
+
+      
 
       <div className="Wyszukiwarka">
         <FiltryMenu setSelectedCategory={setSelectedCategory} />

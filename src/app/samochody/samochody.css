@@ -4,7 +4,53 @@
   font-weight: normal;
   font-style: normal;
 }
-
+.header{
+  position: absolute;
+  display: flex;
+  top: 0;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  height: 60px;
+  width: 100%;
+  background-color: white;
+}
+.header-logo{
+  position: absolute;
+  width: 200px;
+  height: 90px;
+  left: -10px;
+  top: -15px;
+  
+}
+.UserIcon{
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  
+  
+}
+.Logout{
+  position: absolute;
+  left: 50%;
+  z-index: 1000;
+}
+.UserProfileImage{
+  position: absolute;
+  right: 20px;
+  height: 40px;
+  width: 40px;
+  top: 10px;
+  border-radius: 10px ;
+  border: 2px solid black;
+}
+.UserName{
+  position: absolute;
+  right: 70px;
+  top: 20px;
+  color: black;
+  font-weight: 800;
+  font-family: 'HankenGrotesk';
+}
 
 
 .samochodyContainer{
@@ -32,11 +78,11 @@
     
     height: 7%;
     width: 50%;
-    margin-top: 50px;
+    margin-top: 150px;
     display: flex;
     font-family: "HankenGrotesk";
     text-align: center;
-    font-size: 2vw;
+    font-size: 2.5vw;
     font-weight: 900;
     justify-content: center;
     align-items: center;
@@ -44,7 +90,7 @@
 .coChceszZrobicButtons{
     height: 20%;
     width: 30%;
-    margin-top: 20px;
+    margin-top: 50px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -102,7 +148,7 @@
     text-align: center;
     font-size: 2vw;
     font-weight: 900;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     letter-spacing: 2px;
     gap: 30px;
@@ -253,7 +299,7 @@
     text-align: center;
     font-size: 2vw;
     font-weight: 900;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     letter-spacing: 2px;
     gap: 30px;
@@ -340,8 +386,9 @@
     display: flex;
     flex-direction: row;
     gap: 25px;
+    padding: 10px;
     font-size: 1vw;
-    justify-content: start;
+    justify-content: flex-start;
     letter-spacing: 2px;
     align-items: center;
     border: 2px solid rgb(255, 255, 255);
@@ -419,7 +466,7 @@
     border: 2px solid rgb(255, 255, 255);
     border-radius: 15px;
     background-color: white;
-    justify-content: start;
+    justify-content: flex-start;
     padding: 10px;
     align-items: center;
     position: relative;
@@ -533,7 +580,7 @@ position: relative;
     flex-direction: row;
     gap: 25px;
     font-size: 1vw;
-    justify-content: start;
+    justify-content: flex-start;
     letter-spacing: 2px;
     align-items: center;
 }

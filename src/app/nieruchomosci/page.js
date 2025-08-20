@@ -2,6 +2,7 @@
 import "./nieruchomosci.css";
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import HouseIcon from '@mui/icons-material/House';
+import UserIcon from '@mui/icons-material/Person';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import DeckIcon from '@mui/icons-material/Deck';
 import { useState } from "react";
@@ -12,16 +13,54 @@ import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import FormatColorTextIcon from '@mui/icons-material/FormatColorText';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import { useRouter } from 'next/navigation';
-
+import { useSession, signOut } from "next-auth/react";
+import { useRef, useEffect } from "react";
 
 export default function Nieruchomosci() {
-
+  const kontaktRef = useRef(null);
+  const metrazRef = useRef(null);
+  const photosRef = useRef(null);
+  const tytulRef = useRef(null);
+  const cenaRef = useRef(null);
   const [isShownKontakt, setShownKontakt] = useState(false);
   const [isShownMetraz, setShownMetraz] = useState(false);
   const [isShownPhotos, setShownPhotos] = useState(false);
   const [isShownTytul, setShownTytul] = useState(false);
   const [isShownCena, setShownCena] = useState(false);
 
+  const {data: session} = useSession();
+  useEffect(() => {
+    if (isShownKontakt && kontaktRef.current) {
+      kontaktRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+    if (isShownMetraz && metrazRef.current) {
+      metrazRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+    if (isShownPhotos && photosRef.current) {
+      photosRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+    if (isShownTytul && tytulRef.current) {
+      tytulRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+    if (isShownCena && cenaRef.current) {
+      cenaRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  }, [isShownKontakt, isShownMetraz, isShownPhotos, isShownTytul, isShownCena]);
   function showKontaktModal(){
     setShownKontakt(true);
   }
@@ -122,6 +161,30 @@ export default function Nieruchomosci() {
   }
   return (
     <div className="nieruchomosciContainer">
+      <div className="header">
+        {session && (
+          <button
+            className="Logout"
+            type="button"
+            onClick={() => signOut({ callbackUrl: '/oferty' })}
+          >
+            Wyloguj się
+          </button>
+        )}
+        <img src="Safeko-header-logo.png" className="header-logo" />
+        {session?.user ? (
+          <>
+            <img
+              src={session.user.image}
+              alt={session.user.name}
+              className="UserProfileImage"
+            />
+            <span className="UserName">{session.user.name}</span>
+          </>
+        ) : (
+          <UserIcon style={{ fontSize: 50, color: 'Black' }} className="UserIcon" />
+        )}
+      </div>
       <form className="nieruchomosciForm">
         <div className="coChceszZrobic">
           CO CHCESZ SPRZEDAĆ?
@@ -164,7 +227,8 @@ export default function Nieruchomosci() {
       },
     }} /> Działka</button>
         </div>
-        <div className={`kontaktModal ${isShownKontakt ? "show" : ""}`}>
+        
+        <div ref={kontaktRef} className={`kontaktModal ${isShownKontakt ? "show" : ""}`}>
         <button type = "button" className="dalej" onClick={() => setShownMetraz(true)}>Dalej</button>
         <div className="kontaktZTobaText">
           <PersonAddIcon style={{fontSize:50, color:"black"}}/>
@@ -186,7 +250,7 @@ export default function Nieruchomosci() {
           </select>
         </div>
         </div>
-        <div className={`metrazModalContainer ${isShownMetraz ? "show" : ""}`}>
+        <div ref={metrazRef} className={`metrazModalContainer ${isShownMetraz ? "show" : ""}`}>
           <button className="dalej2"  type = "button"onClick={showPhotosModal}>Dalej</button>
           <div className="metrazModalText">
           <TuneIcon style={{fontSize:50, color:"black"}}/>
@@ -198,7 +262,7 @@ export default function Nieruchomosci() {
         </div>
         </div>
 
-        <div className={`photosModalContainer ${isShownPhotos ? "show" : ""}`}>
+        <div ref={photosRef} className={`photosModalContainer ${isShownPhotos ? "show" : ""}`}>
           <button type="button" className="dalej3" onClick={showTytulModal}>Dalej</button>
           <div className="photosModalText">
           <AddAPhotoIcon style={{fontSize:50, color:"black"}}/>
@@ -220,7 +284,7 @@ export default function Nieruchomosci() {
         </div>
         </div>
 
-        <div className={`tytulModal ${isShownTytul ? "show" : ""}`}>
+        <div ref={tytulRef} className={`tytulModal ${isShownTytul ? "show" : ""}`}>
           <button type="button" className="dalej4" onClick={showCenaModal}>Dalej</button>
           <div className="tytulModalText">
             <FormatColorTextIcon style={{fontSize:50, color:"black"}}/>
@@ -233,7 +297,7 @@ export default function Nieruchomosci() {
 
            
         </div>
-        <div className={`cenaModal ${isShownCena ? "show" : ""}`}>
+        <div ref={cenaRef} className={`cenaModal ${isShownCena ? "show" : ""}`}>
           <div className="cenaModalText">
             <AttachMoneyIcon style={{fontSize:50, color:"black"}}/>
             <h1>CENA</h1>

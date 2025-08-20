@@ -6,12 +6,13 @@ import UserIcon from '@mui/icons-material/Person';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import { useRouter } from "next/navigation";
 import Oferty from "./oferty/page";
-
+import { useSession, signOut } from "next-auth/react";
 
 
 export default function Home() {
   
   const router = useRouter();
+  const { data: session } = useSession();
 
   const goToOffers = () =>{
     router.push("/oferty");
@@ -23,8 +24,28 @@ export default function Home() {
     <div className="PageContainer">
       <div className="MainPageText">Get ready for <br/> new marketplace <br/> experience_</div>
       <div className="header">
-        <img src="Safeko-header-logo.png" className="header-logo"/>
-        <UserIcon style = {{ fontSize : 50, color : "Black"}} className='UserIcon'/>
+        {session && (
+          <button
+            className="Logout"
+            type="button"
+            onClick={() => signOut({ callbackUrl: '/' })}
+          >
+            Wyloguj się
+          </button>
+        )}
+        <img src="Safeko-header-logo.png" className="header-logo" />
+        {session?.user ? (
+          <>
+            <img
+              src={session.user.image}
+              alt={session.user.name}
+              className="UserProfileImage"
+            />
+            <span className="UserName">{session.user.name}</span>
+          </>
+        ) : (
+          <UserIcon style={{ fontSize: 50, color: 'Black' }} className="UserIcon" />
+        )}
       </div>
 
       <div className="SafekoLogo">

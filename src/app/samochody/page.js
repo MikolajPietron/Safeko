@@ -3,6 +3,7 @@ import TwoWheelerIcon from '@mui/icons-material/TwoWheeler';
 import "./samochody.css";
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import DirectionsCarFilledIcon from '@mui/icons-material/DirectionsCarFilled';
+import UserIcon from '@mui/icons-material/Person';
 import { useState } from "react";
 import { useRouter } from 'next/navigation';
 import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
@@ -11,7 +12,7 @@ import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import FormatColorTextIcon from '@mui/icons-material/FormatColorText';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-
+import { useSession, signOut } from 'next-auth/react';
 export default function Samochody(){
 
     const [selectedBrand, setSelectedBrand] = useState("");
@@ -22,7 +23,7 @@ export default function Samochody(){
     const [isShowKontakt, setIsShowKontakt] = useState(false);
     const [isShowTytul, setIsShowTytul] = useState(false);
     const [isShowCena, setIsShowCena] = useState(false);
-
+    const {data: session} = useSession();
     function showMarka() {
         setIsShownMarka(true);
     }
@@ -257,6 +258,30 @@ const handleBrandChange = (event) => {
 
     return(
         <div className="samochodyContainer">
+          <div className="header">
+        {session && (
+          <button
+            className="Logout"
+            type="button"
+            onClick={() => signOut({ callbackUrl: '/oferty' })}
+          >
+            Wyloguj się
+          </button>
+        )}
+        <img src="Safeko-header-logo.png" className="header-logo" />
+        {session?.user ? (
+          <>
+            <img
+              src={session.user.image}
+              alt={session.user.name}
+              className="UserProfileImage"
+            />
+            <span className="UserName">{session.user.name}</span>
+          </>
+        ) : (
+          <UserIcon style={{ fontSize: 50, color: 'Black' }} className="UserIcon" />
+        )}
+      </div>
             <form className="samochodyForm">        
                 <div className="coChceszZrobic">
           JAKI POJAZD CHCESZ SPRZEDAĆ?
