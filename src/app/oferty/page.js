@@ -17,21 +17,24 @@ export default function Oferty() {
   useEffect(() => {
   async function fetchOfertyAndSamochody() {
     try {
-      const [ofertaRes, samochodRes] = await Promise.all([
+      const [ofertaRes, samochodRes, bizuteriaRes] = await Promise.all([
         fetch('/api/oferta'),
-        fetch('/api/samochod')
+        fetch('/api/samochod'),
+        fetch('/api/bizuteria')
       ]);
 
-      const [ofertaData, samochodData] = await Promise.all([
+      const [ofertaData, samochodData, bizuteriaData] = await Promise.all([
         ofertaRes.json(),
-        samochodRes.json()
+        samochodRes.json(),
+        bizuteriaRes.json()
       ]);
 
       // Optionally, add a category field to distinguish them
       const ofertaWithCategory = ofertaData.map(item => ({ ...item, kategoria: 'nieruchomość' }));
       const samochodWithCategory = samochodData.map(item => ({ ...item, kategoria: 'samochód' }));
+      const bizuteriaWithCategory = bizuteriaData.map(item => ({ ...item, kategoria: 'bizuteria' }));
 
-      setOfertyList([...ofertaWithCategory, ...samochodWithCategory]);
+      setOfertyList([...ofertaWithCategory, ...samochodWithCategory, ...bizuteriaWithCategory]);
     } catch (error) {
       console.error('Failed to fetch data:', error);
     }

@@ -33,7 +33,7 @@ export default function OfertaDetailsPage() {
       )}
 
       {/* Render samochód fields */}
-      {oferta.category === 'samochod' && (
+      {oferta.kategoria === 'samochod' && (
         <>
           <p>Marka: {oferta.marka}</p>
           <p>Model: {oferta.model}</p>
@@ -44,6 +44,19 @@ export default function OfertaDetailsPage() {
           <p>Paliwo: {oferta.paliwo}</p>
           <p>Stan: {oferta.stan}</p>
           <p>Typ: {oferta.pojazdTyp}</p>
+        </>
+      )}
+
+      {/* Render biżuteria fields */}
+      {oferta.kategoria === 'bizuteria' && (
+        <>
+          <p>Rodzaj: {oferta.rodzaj}</p>
+          <p>Stan: {oferta.stan}</p>
+          <p>Rok: {oferta.rok}</p>
+          <p>Próba: {oferta.proba}</p>
+          <p>Waga: {oferta.waga} g</p>
+          <p>Rozmiar: {oferta.rozmiar}</p>
+          <p>Materiał: {oferta.material}</p>
         </>
       )}
 

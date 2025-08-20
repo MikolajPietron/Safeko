@@ -118,7 +118,10 @@ export default function DodajOferte() {
         
       },
     }} />Nieruchomości</button>
-            <button type='button' className='goToBizuteria'>
+            <button type='button' className='goToBizuteria' onClick={() => {
+              setSelectedCategory("Bizuteria");
+              router.push('/bizuteria');
+            }}>
               <WatchIcon className='watchIcon' sx={{
       fontSize: 40,
       color: "white",
