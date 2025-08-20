@@ -124,7 +124,7 @@ export default function Nieruchomosci() {
     <div className="nieruchomosciContainer">
       <form className="nieruchomosciForm">
         <div className="coChceszZrobic">
-          CO CHCESZ ZROBIĆ?
+          CO CHCESZ SPRZEDAĆ?
         </div>
         <div className="coChceszZrobicButtons">
           <button type="button" className = "mieszkanieButton" name="wybierzNieruchomosc" onClick={() => {
@@ -167,7 +167,7 @@ export default function Nieruchomosci() {
         <div className={`kontaktModal ${isShownKontakt ? "show" : ""}`}>
         <button type = "button" className="dalej" onClick={() => setShownMetraz(true)}>Dalej</button>
         <div className="kontaktZTobaText">
-          <PersonAddIcon style={{fontSize:40, color:"white"}}/>
+          <PersonAddIcon style={{fontSize:50, color:"black"}}/>
           DAJ KONTAKT DO SIEBIE!
         </div>
         <div className="kontaktZTobaInput">
@@ -189,7 +189,7 @@ export default function Nieruchomosci() {
         <div className={`metrazModalContainer ${isShownMetraz ? "show" : ""}`}>
           <button className="dalej2"  type = "button"onClick={showPhotosModal}>Dalej</button>
           <div className="metrazModalText">
-          <TuneIcon style={{fontSize:40, color:"white"}}/>
+          <TuneIcon style={{fontSize:50, color:"black"}}/>
           <h1>GŁÓWNE INFORMACJE</h1>
         </div>
         <div className= "metrazModal" >
@@ -201,7 +201,7 @@ export default function Nieruchomosci() {
         <div className={`photosModalContainer ${isShownPhotos ? "show" : ""}`}>
           <button type="button" className="dalej3" onClick={showTytulModal}>Dalej</button>
           <div className="photosModalText">
-          <AddAPhotoIcon style={{fontSize:40, color:"white"}}/>
+          <AddAPhotoIcon style={{fontSize:50, color:"black"}}/>
           <h1>DODAJ ZDJĘCIA</h1>
         </div>
         <div className="photosModal">
@@ -221,9 +221,9 @@ export default function Nieruchomosci() {
         </div>
 
         <div className={`tytulModal ${isShownTytul ? "show" : ""}`}>
-          <button type="button" className="dalej4" onClick={showCenaModal}>Dodaj</button>
+          <button type="button" className="dalej4" onClick={showCenaModal}>Dalej</button>
           <div className="tytulModalText">
-            <FormatColorTextIcon style={{fontSize:40, color:"white"}}/>
+            <FormatColorTextIcon style={{fontSize:50, color:"black"}}/>
             <h1>TYTUŁ I OPIS</h1>
           </div>
           <div className="tytulModalContent">
@@ -235,7 +235,7 @@ export default function Nieruchomosci() {
         </div>
         <div className={`cenaModal ${isShownCena ? "show" : ""}`}>
           <div className="cenaModalText">
-            <AttachMoneyIcon style={{fontSize:40, color:"white"}}/>
+            <AttachMoneyIcon style={{fontSize:50, color:"black"}}/>
             <h1>CENA</h1>
           </div>
           <div className="cenaModalContent">
@@ -246,7 +246,7 @@ export default function Nieruchomosci() {
           <button type="submit" onClick={handleSubmit} className="dodajOgłoszenie">Dodaj Ogłoszenie</button>
         </div>
       </form>
-      <div className="placeholder"></div>
+      
     </div>
   );
 }

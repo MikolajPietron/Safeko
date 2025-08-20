@@ -20,13 +20,13 @@ export default function Filtry({ setSelectedCategory }) {
                 </button>
             </div>
             <div className={`filtryModal ${open ? 'open' : ''}`}>
-                <button className='nieruchomosci' onClick={() => setSelectedCategory('Nieruchomości')}>
+                <button className='nieruchomosci' onClick={() => setSelectedCategory('nieruchomość')}>
                     <HomeIcon style={{ fontSize: 30, color: 'white' }} />
                 </button>
                 <button className='bizuteria' onClick={() => setSelectedCategory('Biżuteria')}>
                     <WatchIcon style={{ fontSize: 30, color: 'white' }} />
                 </button>
-                <button className='samochody' onClick={() => setSelectedCategory('Samochody')}>
+                <button className='samochody' onClick={() => setSelectedCategory('samochód')}>
                     <DirectionsCarIcon style={{ fontSize: 30, color: 'white' }} />
                 </button>
                 <button  className = 'wszystkie' onClick={() => setSelectedCategory(null)}>

@@ -129,7 +129,7 @@ export default function DodajOferte() {
       },
     }}/>Biżuteria
             </button>
-            <button type='button' className='goToSamochody'>
+            <button type='button' className='goToSamochody' onClick={() => router.push('/samochody')}>
               <DirectionsCarIcon className='carIcon' sx={{
       fontSize: 40,
       color: "white",

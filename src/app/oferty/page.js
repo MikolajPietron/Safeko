@@ -15,13 +15,31 @@ export default function Oferty() {
 
   // GET — fetch offers from API
   useEffect(() => {
-    async function fetchOferty() {
-      const res = await fetch('/api/oferta');
-      const data = await res.json();
-      setOfertyList(data);
+  async function fetchOfertyAndSamochody() {
+    try {
+      const [ofertaRes, samochodRes] = await Promise.all([
+        fetch('/api/oferta'),
+        fetch('/api/samochod')
+      ]);
+
+      const [ofertaData, samochodData] = await Promise.all([
+        ofertaRes.json(),
+        samochodRes.json()
+      ]);
+
+      // Optionally, add a category field to distinguish them
+      const ofertaWithCategory = ofertaData.map(item => ({ ...item, kategoria: 'nieruchomość' }));
+      const samochodWithCategory = samochodData.map(item => ({ ...item, kategoria: 'samochód' }));
+
+      setOfertyList([...ofertaWithCategory, ...samochodWithCategory]);
+    } catch (error) {
+      console.error('Failed to fetch data:', error);
     }
-    fetchOferty();
-  }, []);
+  }
+
+  fetchOfertyAndSamochody();
+}, []);
+
 
   return (
     <div className="OfertyPageContainer">

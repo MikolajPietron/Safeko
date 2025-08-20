@@ -23,19 +23,39 @@ export default function OfertaDetailsPage() {
     <div>
       <h1>{oferta.tytul}</h1>
       <p>{oferta.opis}</p>
-      <p>{oferta.metraz} m2</p>
-      <p>{oferta.liczbaPokoi} pokoi</p>
-      <p>{oferta.dodanePrzez}</p>
-      <p>{oferta.imie}</p>
-      <p>{oferta.email}</p>
-      <p>{oferta.numer}</p>
-      <p>{oferta.cena}</p>
+
+      {/* Render nieruchomości fields */}
+      {oferta.kategoria === 'nieruchomosc' && (
+        <>
+          <p>Metraż: {oferta.metraz} m²</p>
+          <p>Liczba pokoi: {oferta.liczbaPokoi}</p>
+        </>
+      )}
+
+      {/* Render samochód fields */}
+      {oferta.category === 'samochod' && (
+        <>
+          <p>Marka: {oferta.marka}</p>
+          <p>Model: {oferta.model}</p>
+          <p>Rok: {oferta.rok}</p>
+          <p>Przebieg: {oferta.przebieg} km</p>
+          <p>Pojemność: {oferta.pojemnosc} cm³</p>
+          <p>Moc: {oferta.moc} KM</p>
+          <p>Paliwo: {oferta.paliwo}</p>
+          <p>Stan: {oferta.stan}</p>
+          <p>Typ: {oferta.pojazdTyp}</p>
+        </>
+      )}
+
+      <p>Dodane przez: {oferta.dodanePrzez}</p>
+      <p>Kontakt: {oferta.imie} | {oferta.email} | {oferta.numer}</p>
+      <p>Cena: {oferta.cena} zł</p>
+
       <img
         src={`https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME}.s3.amazonaws.com/${oferta.imageKey}`}
         alt={oferta.tytul}
         style={{ maxWidth: '400px' }}
       />
-      <p>{oferta.cena} zł</p>
     </div>
   );
 }
