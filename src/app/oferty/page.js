@@ -1,6 +1,7 @@
 'use client';
 import './oferty.css';
 import UserIcon from '@mui/icons-material/Person';
+import ProfileMenu from '@/components/ProfileMenu/profileMenu';
 import { useState, useEffect } from 'react';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import FiltryMenu from '@/components/HamburgerFiltry/Filtry';
@@ -12,6 +13,10 @@ export default function Oferty() {
 
   const [ofertyList, setOfertyList] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [isShowProfileMenu, setIsShowProfileMenu] = useState(false);
+  function toggleProfileMenu() {
+    setIsShowProfileMenu(prev => !prev);
+  }
 
   // GET — fetch offers from API
   useEffect(() => {
@@ -46,25 +51,23 @@ export default function Oferty() {
 
   return (
     <div className="OfertyPageContainer">
+      <div className={`profileMenu ${isShowProfileMenu ? 'show' : ''}`}>
+              <ProfileMenu />
+            </div>
       <div className="header">
         {session && (
-          <button
-            className="Logout"
-            type="button"
-            onClick={() => signOut({ callbackUrl: '/oferty' })}
-          >
-            Wyloguj się
-          </button>
-        )}
-        <img src="Safeko-header-logo.png" className="header-logo" />
-        {session?.user ? (
-          <>
+          <button className="UserProfileButton" onClick={toggleProfileMenu}>
             <img
               src={session.user.image}
               alt={session.user.name}
               className="UserProfileImage"
             />
-            <span className="UserName">{session.user.name}</span>
+          </button>
+        )}
+        <img src="Safeko-header-logo.png" className="header-logo" />
+        {session?.user ? (
+          <>
+            
           </>
         ) : (
           <UserIcon style={{ fontSize: 50, color: 'Black' }} className="UserIcon" />
