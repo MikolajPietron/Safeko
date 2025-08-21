@@ -103,7 +103,7 @@ export default function Oferty() {
                 <p className="cena1">{oferta.cena} Zł</p>
                 <button className="kup">Dodaj do koszyka</button>
                 <span
-                  className="szczegoly"
+                  className="szczegolyOferty"
                   onClick={() => router.push(`/ofertadetails/${oferta._id}`)}
                 >
                   Szczegóły &rsaquo;

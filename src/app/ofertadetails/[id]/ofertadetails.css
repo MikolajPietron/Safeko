@@ -1,0 +1,422 @@
+@font-face {
+  font-family: 'HankenGrotesk';
+  src: url('/fonts/HankenGrotesk-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.ofertaDetailsContainer{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    color: black;
+}
+.ofertaDetailsInside{
+    position: relative;
+    width: 95%;
+    border-radius: 15px;
+    background-color: white;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+}
+.saleContainer{
+    align-self: flex-end;
+    height: 30vh;
+    width: 20vw;
+    padding: 30px;
+    border: 3px solid black;
+    border-radius: 15px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+.przezKogo{
+    
+    color: black;
+    font-family: 'HankenGrotesk', sans-serif;
+    font: 100;
+    
+    font-size: 0.8vw;
+}
+.kontaktOferty{
+    
+    color: black;
+    font-family: 'HankenGrotesk', sans-serif;
+    font: 100;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.6vw;
+}
+.emailOferty{
+    
+    color: black;
+    font-family: 'HankenGrotesk', sans-serif;
+    font: 100;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.6vw;
+}
+.kontaktprzycisk{
+    
+    color: black;
+    font-family: 'HankenGrotesk', sans-serif;
+    font: 100;
+    display: flex;
+    height: 5vh;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.6vw;
+}
+.kontaktButton{
+    height: 90%;
+    width: 40%;
+    border: none;
+    border: 2px solid black;
+    background-color: black;
+    color: rgb(255, 255, 255);
+    font-family: 'HankenGrotesk', sans-serif;
+    font-size: 0.8vw;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.kontaktButton:hover{
+    background-color: rgb(255, 255, 255);
+    color: black;
+    
+}
+.imieOferty{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    
+}
+.photosandtytulcena{
+    
+    position: relative;
+    padding: 50px;
+    display: flex;
+    width: 50%;
+    height: 100%;
+    place-items: center;
+    gap: 0;
+    flex-direction: column;
+}
+.photosContainer {
+     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:60%;
+    
+    width: 100%;
+    flex-direction: column;
+    border-radius: 12px;
+    margin: 0;
+  padding: 0;
+  
+}
+
+.tytulCena{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 10vh;
+    width: 100%;
+    border-radius: 12px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    
+    padding: 10px;
+    
+}
+.tytul{
+    font-family: 'HankenGrotesk', sans-serif;
+    font-size: 1vw;
+    font-weight: 800;
+    margin: 0;
+    padding: 0;
+}
+.cena{
+    
+    font-family: 'HankenGrotesk', sans-serif;
+    font-size: 1vw;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+}
+
+
+.photosContainer img{
+    border-radius: 15px;
+    border: 3px solid black;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.ofertaDetailsSzczegoly{
+    height: 100%;
+    width: 50%;
+    
+    position: relative;
+    display: flex;
+    padding: 50px;
+    flex-direction: column;
+}
+.opisContainer{
+    flex: 1;
+    
+    
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 50px;
+    align-items: center;
+    padding: 10px;
+}
+.opish2{
+    
+    font-size: 1.5vw;
+    font-family: "HankenGrotesk";
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+.opis{
+    font-size: 1vw;
+    font-family: "HankenGrotesk";
+    font-weight: 900;
+}
+.szczegolyContainer{
+    flex: 1;
+    
+    
+}
+.szczegoly{
+    font-family: 'HankenGrotesk', sans-serif;
+    font-size: 1.5vw;
+    gap: 10px;
+    padding: 10px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: fit-content;
+    min-height: 10vh;
+}
+.metraz{
+   border-bottom: 2px solid black;
+    width: fit-content;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 20px;
+    align-items: center;
+    gap: 20px;
+}
+.liczbaPokoi{
+    border-bottom: 2px solid black;
+    width: fit-content;
+    
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 17px;
+    align-items: center;
+    gap: 18px;
+}
+.marka{
+    border-bottom: 2px solid black;
+    width: fit-content;
+    
+    
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 17px;
+    align-items: center;
+    gap: 18px;
+}
+.model{
+   border-bottom: 2px solid black;
+    width: fit-content;
+    
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 17px;
+    align-items: center;
+    gap: 18px;
+}
+.rok{
+  border-bottom: 2px solid black;
+    width: fit-content;
+    
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 17px;
+    align-items: center;
+    gap: 18px;
+}
+.przebieg{
+    border-bottom: 2px solid black;
+    width: fit-content;
+    
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 17px;
+    align-items: center;
+    gap: 18px;
+}
+.pojemnosc{
+    border-bottom: 2px solid black;
+    width: fit-content;
+    
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 17px;
+    align-items: center;
+    gap: 18px;
+}
+.moc{
+    border-bottom: 2px solid black;
+    width: fit-content;
+    
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 17px;
+    align-items: center;
+    gap: 18px;
+}
+.paliwo{
+    border-bottom: 2px solid black;
+    width: fit-content;
+    
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 17px;
+    align-items: center;
+    gap: 18px;
+}
+.stan{
+    border-bottom: 2px solid black;
+    width: fit-content;
+    
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 17px;
+    align-items: center;
+    gap: 18px;
+}
+.typ{
+    border-bottom: 2px solid black;
+    width: fit-content;
+    
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 17px;
+    align-items: center;
+    gap: 18px;
+}
+.rodzaj{
+    border-bottom: 2px solid black;
+    width: fit-content;
+    
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 17px;
+    align-items: center;
+    gap: 18px;
+}
+.stan{
+    border-bottom: 2px solid black;
+    width: fit-content;
+    
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 17px;
+    align-items: center;
+    gap: 18px;
+}
+.proba{
+    border-bottom: 2px solid black;
+    width: fit-content;
+    
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 17px;
+    align-items: center;
+    gap: 18px;
+}
+.waga{
+    border-bottom: 2px solid black;
+    width: fit-content;
+    
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 17px;
+    align-items: center;
+    gap: 18px;
+}
+.rozmiar{
+    border-bottom: 2px solid black;
+    width: fit-content;
+    
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 17px;
+    align-items: center;
+    gap: 18px;
+}
+.material{
+    border-bottom: 2px solid black;
+    width: fit-content;
+    
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 17px;
+    align-items: center;
+    gap: 18px;
+}
