@@ -54,7 +54,7 @@ export default function Home() {
       <div className="WaveElement">
         <img src="/WaveElement2.svg" alt="Wave" className="waveElement" />
       </div>
-      <div className="MainPageText">Get ready for new <br/>  Marketplace <br/> Experience_</div>
+      <div className="MainPageText">Get ready for<br/>new marketplace<br/>experience_</div>
       
 
       <div className="SafekoLogo">

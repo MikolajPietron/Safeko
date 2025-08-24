@@ -28,7 +28,7 @@ body {
   height: 100vh;
   
 }
-.waveElement{}
+
 .profileMenu{
   position: absolute;
   top: 100px;
@@ -119,7 +119,7 @@ body {
   width: 30vw;
   height: 30vh;
   color: #1d1d1b;
-  left: 10%;
+  left: 8%;
   top: 30%;
   font-size: 4rem;
   font-family: 'HankenGrotesk';
@@ -129,8 +129,9 @@ body {
   position: fixed;
   display: flex;
   flex-direction: row;
-  bottom: 10px;
-  height: 25vh;
+  bottom: 50px;
+  left: 150px;
+  height: 30vh;
   align-self: center;
   width: 70vw;
   
@@ -141,10 +142,11 @@ body {
   position: relative;
   flex: 1;
   
+  
   flex-direction: column;
   place-items: center;
   padding: 2px;
-  gap: 5px;
+  gap: 10px;
 }
 .samochodyImageContainer, .nieruchomosciImageContainer, .bizuteriaImageContainer {
   height: 80%;
@@ -154,25 +156,34 @@ body {
  
 }
 .carImage{
+  cursor: pointer;
   border-radius: 3px;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border: 3px solid #1d1d1b;
+  transition: all 0.4s ease;
+
+}
+.carImage:hover, .houseImage:hover, .bizuteriaImage:hover {
+  opacity: 0.9;
 }
 .houseImage{
+  cursor: pointer;
   border-radius: 3px;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border: 3px solid #1d1d1b;
+  transition: all 0.4s ease;
+  
 }
 .bizuteriaImage{
+  cursor: pointer;
   border-radius: 3px;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border: 3px solid #1d1d1b;
+  transition: all 0.4s ease;
+  
 }
 .samochodyButton,.bizuteriaButton,.nieruchomosciButton {
   height: 5vh;
@@ -180,6 +191,7 @@ body {
   border: 2px solid green;
   cursor: pointer;
   border-radius: 5px;
+  font-size: 1vw;
   font-family: "HankenGrotesk";
   background-color: #1d1d1b;
   border: 2px solid #1d1d1b;
@@ -212,7 +224,7 @@ body {
   position: fixed;
   display: flex;
   flex-direction: column;
-  top: 45%;
+  top: 43%;
   left: 50%;
   transform: translate(-50%,-50%);
   
