@@ -7,16 +7,28 @@
 
 body {
   font-family: 'NeueMontreal', sans-serif;
+  overflow: hidden;
 }
 .PageContainer{
   height: 100vh;
   width: 100vw;
   position: relative;
   display: flex;
-  justify-content: left;
+  justify-content: center;
   align-items: center;
+  background-color: white;
+  
+
  
 }
+.WaveElement{
+  position: absolute;
+  right: -250px;
+  top: 0;
+  height: 100vh;
+  
+}
+.waveElement{}
 .profileMenu{
   position: absolute;
   top: 100px;
@@ -61,15 +73,19 @@ body {
   z-index: 100;
 }
 .LogoIcon{
-  width: 100%;
-  height: 100%;
+  width: fit-content;
+  height: fit-content;
+  position: absolute ;
+  left: -80px;
+  top: -40px;
+  
 }
 .header{
+  
   position: fixed;
   display: flex;
   top: 0px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  
   height: 60px;
   width: 100%;
   background-color: white;
@@ -102,24 +118,103 @@ body {
   display: flex;
   width: 30vw;
   height: 30vh;
-  
-  margin-left: 50px;
-  margin-top: 150px;
+  color: #1d1d1b;
+  left: 10%;
+  top: 30%;
   font-size: 4rem;
   font-family: 'HankenGrotesk';
   font-weight: 500;
-  
-
 }
+.bottomImages{
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  bottom: 10px;
+  height: 25vh;
+  align-self: center;
+  width: 70vw;
+  
+  gap: 40px;
+}
+.samochodyContainer, .nieruchomosciContainer, .bizuteriaContainer {
+  display: flex;
+  position: relative;
+  flex: 1;
+  
+  flex-direction: column;
+  place-items: center;
+  padding: 2px;
+  gap: 5px;
+}
+.samochodyImageContainer, .nieruchomosciImageContainer, .bizuteriaImageContainer {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+ 
+}
+.carImage{
+  border-radius: 3px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 3px solid #1d1d1b;
+}
+.houseImage{
+  border-radius: 3px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 3px solid #1d1d1b;
+}
+.bizuteriaImage{
+  border-radius: 3px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 3px solid #1d1d1b;
+}
+.samochodyButton,.bizuteriaButton,.nieruchomosciButton {
+  height: 5vh;
+  width: 50%;
+  border: 2px solid green;
+  cursor: pointer;
+  border-radius: 5px;
+  font-family: "HankenGrotesk";
+  background-color: #1d1d1b;
+  border: 2px solid #1d1d1b;
+  transition: all 0.4s ease;
+}
+.samochodyButton:hover,.bizuteriaButton:hover,.nieruchomosciButton:hover {
+  background-color: white;
+  color: rgb(0, 0, 0);
+}
+
+.headerText {
+  height: 5vh;
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 10px;
+  right: 10%;
+  font-family: "HankenGrotesk";
+  
+  display: flex;
+  gap: 50px;
+  color: #1d1d1b;
+  align-items: center;
+}
+
 .ButtonsContainer{
-  height: 10vh;
+  
   width: 20%;
   position: fixed;
   display: flex;
   flex-direction: column;
-  bottom: 50px;
+  top: 45%;
   left: 50%;
-  transform: translate(-50%,0);
+  transform: translate(-50%,-50%);
   
   height: 50%;
   border-radius: 30px;
@@ -128,89 +223,54 @@ body {
   gap: 50px;
   background-color: transparent;
   z-index: 10000;
-  margin-bottom: 70px;
+  
 
   
 }
-/* .LoginContainer{
-  display: flex;
-  flex-direction: row;
-  gap: 30px;
-  height: 80%;
-  width: 20%;
-  border: 2px solid rgb(255, 255, 255);
-  justify-content: center;
-  border-radius: 20px;
-  align-items: center;
-  align-self: center;
-  border: 2px solid yellow;
-} */
+
 .LoginButton{
-  border: 2px solid rgb(255, 255, 255);
+  
   height: 8vh;
   width: 15vw;
   align-self: right;
-  background-color: transparent;
+  background-color: #1d1d1b;
   letter-spacing: 1.5px;
-  border-radius: 20px;
+  border: 2px solid #1d1d1b;
   color: rgb(255, 255, 255);
   font-size: 1.5vw;
   font-family: 'HankenGrotesk';
-  font-weight: 800;
+  
   cursor: pointer;
   transition: all 0.4s ease;
   
 }
-/* .OffersContainer{
-  display: flex;
-  flex-direction: row;
-  gap: 30px;
-  height: 80%;
-  width: 20%;
-  border: 2px solid rgb(255, 255, 255);
-  justify-content: center;
-  border-radius: 20px;
-  align-items: center;
-  align-self: center; 
-}
-*/
+
 .OffersButton{
   height: 8vh;
   width: 15vw;
   align-self: right;
-  background-color: transparent;
+  background-color: #1d1d1b;
   letter-spacing: 1.5px;
-  border-radius: 20px;
+  border: 2px solid #1d1d1b;
   color: rgb(255, 255, 255);
   font-size: 1.5vw;
   font-family: 'HankenGrotesk';
-  font-weight: 800;
+  
   cursor: pointer;
   transition: all 0.4s ease;
 }
-/* .GroupsContainer{
-  display: flex;
-  flex-direction: row;
-  gap: 30px;
-  height: 80%;
-  width: 20%;
-  border: 2px solid rgb(255, 255, 255);
-  justify-content: center;
-  border-radius: 20px;
-  align-items: center;
-  align-self: center;
-} */
+
 .GroupsButton{
   height: 8vh;
   width: 15vw;
   align-self: right;
-  background-color: transparent;
+  background-color: #1d1d1b;
   letter-spacing: 1.5px;
-  border-radius: 20px;
+  border: 2px solid #1d1d1b;
   color: rgb(255, 255, 255);
   font-size: 1.5vw;
   font-family: 'HankenGrotesk';
-  font-weight: 800;
+  
   cursor: pointer;
   transition: all 0.4s ease;
 }

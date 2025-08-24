@@ -29,6 +29,11 @@ export default function Home() {
         <ProfileMenu />
       </div>
       <div className="header">
+        <div className="headerText">
+          <a href="Kontakt">Kontakt</a>
+          <a href="O-nas">O nas</a>
+        </div>
+        <img src= "/default_logo.svg" className="LogoIcon"/>
         
         
         {session?.user ? (
@@ -46,11 +51,14 @@ export default function Home() {
           <UserIcon style={{ fontSize: 50, color: 'Black' }} className="UserIcon" />
         )}
       </div>
-      <div className="MainPageText">Get ready for <br/> new marketplace <br/> experience_</div>
+      <div className="WaveElement">
+        <img src="/WaveElement2.svg" alt="Wave" className="waveElement" />
+      </div>
+      <div className="MainPageText">Get ready for new <br/>  Marketplace <br/> Experience_</div>
       
 
       <div className="SafekoLogo">
-      <img src= "/1.svg" className="LogoIcon"/>
+      
 
        
       </div>
@@ -62,7 +70,7 @@ export default function Home() {
         </div> */}
         <button onClick ={goToOffers} className="OffersButton">Zobacz oferty</button>
         <button onClick = {goToLogin} className="LoginButton">Zaloguj się</button>
-        <button className="GroupsButton">Grupy</button>
+        {/* <button className="GroupsButton">Grupy</button> */}
         {/* <div className="OffersContainer">
           <KeyboardDoubleArrowRightIcon style={{fontSize:50,color:"white"}}/>
           
@@ -73,6 +81,26 @@ export default function Home() {
           
         </div> */}
         
+      </div>
+      <div className="bottomImages">
+        <div className="samochodyContainer">
+          <div className="samochodyImageContainer">
+          <img src="/carImage.png" alt="Samochody" className="carImage"/>
+        </div>
+        <button className="samochodyButton" onClick={goToOffers}>Samochody</button>
+        </div>
+        <div className="nieruchomosciContainer">
+          <div className="nieruchomosciImageContainer">
+            <img src="/houseImage.png" alt="Nieruchomości" className="houseImage"/>
+          </div>
+          <button className="nieruchomosciButton" onClick={goToOffers}>Nieruchomości</button>
+        </div>
+        <div className="bizuteriaContainer">
+          <div className="bizuteriaImageContainer">
+            <img src="/bizuteriaImage.png" alt="Biżuteria" className="bizuteriaImage"/>
+          </div>
+          <button className="bizuteriaButton" onClick={goToOffers}>Biżuteria</button>
+        </div>
       </div>
     </div>
     
