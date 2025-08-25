@@ -16,20 +16,21 @@ body {
 .OfertyPageContainer{
     height: 100vh;
     width: 100vw;
-    background-color: black;
+    background-color: rgb(255, 255, 255);
     justify-content: center;
     align-items: center;
     display: flex;
-    
+    position: relative;
+    overflow-y: auto;
 }
 .dodajOferte{
     position: absolute;
     right: 250px;
     border-radius: 20px;
     top: 50%;
-    border:3px solid black;
+    border:2px solid #1d1d1b;
     transform: translate(0, -50%);
-    background-color: rgb(0, 0, 0);
+    background-color: #1d1d1b;
     color: rgb(255, 255, 255);
     font-family: 'HankenGrotesk';
     font-weight: 800;
@@ -44,22 +45,21 @@ body {
     color: rgb(0, 0, 0);
     
 }
-.header{
-  position: relative;
+.headerOferty{
+  position: fixed;
   display: flex;
   top: 0;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  
   height: 60px;
   width: 100%;
   background-color: white;
 }
 .header-logo{
-  position: absolute;
-  width: 200px;
-  height: 90px;
-  left: -10px;
-  top: -15px;
+  width: fit-content;
+  height: fit-content;
+  position: absolute ;
+  left: -80px;
+  top: -40px;
   
 }
 .UserIcon{
@@ -90,30 +90,6 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.OfertaAddModal {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-  height: 80vh;
-  width: 70vw;
-  position: fixed;
-  left: 50%;
-  bottom: 0;
-  transform: translate(-50%, 100%); /* Start hidden (off screen) */
-  background-color: rgb(255, 255, 255,  0.9);
-  opacity: 0;
-  border-radius: 20px;
-  transition: transform 0.5s ease, opacity 0.5s ease;
-  z-index: 999;
-  pointer-events: none; /* Prevent interaction when hidden */
-  padding: 20px;
-}
-
-.OfertaAddModal.visible {
-  transform: translate(-50%, -5%); /* Slide up into view */
-  opacity: 1;
-  pointer-events: auto;
-}
 
 .Photos{
 height: 60%;
@@ -176,7 +152,7 @@ position: relative;
 .nazwacenaopis{
   position: relative;
   display: flex;
-  border: 2px solid red;
+  
   height: 100vh;
   width: 30vw;
   flex-direction: row;
@@ -218,42 +194,198 @@ position: relative;
   overflow: visible;
   width: 80vw;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 70px;
   column-gap: auto;
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(1,1fr);
   place-items: center;
   align-self: center;
   align-items: center;
   
   
   
+  
+  
 }
 .OfertaItem{
-  width: 20vw;
-  height: 50vh;
-  border: 2px solid rgb(255, 255, 255);
-  border-radius: 10px;
-  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 40vh;
+  
+  border-top: 1px solid #1d1d1b;
+  border-bottom: 1px solid #1d1d1b;
+  color: #1d1d1b;
+  padding: 20px;
+  justify-content: flex-start;
   align-items: center;
-  flex-direction: column;
+  
+  display: flex;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.OfertaItem:hover{
+  transform: scale(1.02);
+}
+.imageContainerOferty{
+  position: relative;
+  left: 0px;
+  height: 100%;
+  width: 40%;
+  
   display: flex;
 }
 .OfertaPhoto1{
-  margin-top: 10px;
-  border-radius: 10px;
-  width: 95%;
-  height: 50%;
+  
+  
+  width: 100%;
+  height: 100%;
   flex: 1;
 }
 .detailsContainer{
-  width: 100%;
+  width: 40%;
   display: flex;
   position: relative;
-  flex: 1;
+  height: 100%;
+  
   
 }
-
+.sellerContainer{
+  width: 20%;
+  height: 100%;
+ border-left:2px solid #1d1d1b;
+  display: flex ;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+  gap: 10px;
+}
+.sellerIconContainer{
+  
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.sellerImie{
+ 
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.sellerDetails{
+  
+  width: 100%;
+  flex-direction: column;
+  height: 20vh;
+  gap: 2px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  font-family: "HankenGrotesk";
+} 
+.sellerInfo{
+  
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "HankenGrotesk";
+}
+.sellerDane{
+  
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-family: "HankenGrotesk";
+  
+}
+.sellerEmail{
+  
+  width: 100%;
+  height: 3vh;
+  justify-content: center;
+  align-self: center;
+  text-align: right;
+  
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  font-family: "HankenGrotesk";
+}
+.sellerTelefon{
+  
+  width: 100%;
+  height: 3vh;
+  justify-content: center;
+  align-self: center;
+  text-align: right;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  letter-spacing: 1px;
+  font-family: "HankenGrotesk";
+}
+.kontaktSellerButton{
+  height: 7vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+}
+.sellerContactButton{
+  height: 5vh;
+  width: 8vw;
+  border: 2px solid #1d1d1b;
+  background-color: #1d1d1b;
+  border-radius: 1px;
+  font-family: "HankenGrotesk";
+  font-size: 1vw;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.sellerContactButton:hover{
+  background-color: white;
+  color: black;
+}
+.lokalizacjaContainer{
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  position: absolute;
+  right: 20px;
+  bottom: 0px;
+  text-align: center;
+  height: 15vh;
+  width: 10vw;
+  
+  font-family: "HankenGrotesk";
+}
+.lokalizacjaContainer h1{
+  font-size: 1.4vw;
+}
+.detailsUnderNazwa{
+  height: 3vh;
+  width: 20vw;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 70px;
+  gap: 20px;
+  left: 10px;
+  font-family: "HankenGrotesk";
+  
+}
 .nazwa1{
   position: absolute;
   top: 30px;
@@ -265,25 +397,25 @@ position: relative;
 .cena1{
   position: absolute;
   top: 34px;
-  right: 10px;
+  right: 20px;
   font-family: "HankenGrotesk";
   font-size: 1.2vw;
   letter-spacing: 1.5px;
 }
 .kup{
   position: absolute;
-  top: 40%;
+  bottom: 50px;
   left: 10px;
   height: 5vh;
   width: 8vw;
-  background-color: transparent;
-  border: 1px solid white;
-  color: rgb(255, 253, 253);
+  background-color: #1d1d1b;
+  border: 2px solid #1d1d1b;
+  color: #ffffff;
   font-family: 'HankenGrotesk';
-  font-weight: 800;
+  
   font-size: 1rem;
   text-align: center;
-  border-radius: 15px;
+  
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -296,18 +428,19 @@ position: relative;
   position: absolute;
   bottom: 10px;
   left: 20px;
-  font-size: 1.5rem;
+  font-size: 1vw;
   font-weight: 800;
   font-family: "HankenGrotesk";
   cursor: pointer;
 } 
 .Wyszukiwarka{
   position: absolute;
+  
   top: 25%;
   display: flex;
   flex-direction: row;
   height: 10vh;
-  width: 80vw;
+  width: 73vw;
   
 }
 .kategoria{
@@ -358,7 +491,7 @@ position: relative;
   width: 50%;
   display: flex;
   height: 100%;
-  border: 2px solid red;
+  
   position: relative;
   flex-direction: column;
 }

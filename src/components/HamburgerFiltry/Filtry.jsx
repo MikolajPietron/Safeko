@@ -14,9 +14,9 @@ export default function Filtry({ setSelectedCategory }) {
     return (
         <>
             <div className="filtry">
-                <span>Filtry</span>
+                
                 <button className='filtryButton' onClick={() => setOpen(prev => !prev)}>
-                    <TuneIcon className='filtryIcon' style={{ fontSize: 40, color: 'white' }} />
+                    Filtry
                 </button>
             </div>
             <div className={`filtryModal ${open ? 'open' : ''}`}>

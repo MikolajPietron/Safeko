@@ -9,30 +9,32 @@
     display: flex;
     flex-direction: row;
     height: 100%;
-    width: 20%;
+    width: fit-content;
     gap:20px;
     
     justify-content: center;
     align-items: center;
 }
 .filtryButton{
-height: 5vh;
-width: 3vw;
-border-radius: 10px;
-background-color: transparent;
+height: 4.5vh;
+width: 6vw;
+font-size: 1vw;
+border: 2px solid #1d1d1b;
+background-color: #1d1d1b;
+font-family: "HankenGrotesk";
 cursor: pointer;
 }
 .filtryModal {
   height: 100%;
   width: 20%;
-  ;
+  
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 15px;
   display: flex;
   
-  transform: translateX(-100%);
+  transform: translateX(-20%);
   opacity: 0;
 
   
@@ -41,15 +43,15 @@ cursor: pointer;
 }
 
 .filtryModal.open {
-  transform: translateX(0);
+  transform: translateX(50px);
   opacity: 1;
   pointer-events: auto;
 }
 .filtryModal button{
     height: 5vh;
-    background-color: transparent;
-    border: 2px solid white;
-    border-radius:50px ;
+    background-color: #1d1d1b;
+    border: 2px solid #1d1d1b;
+    border-radius:5px ;
     width: 3vw;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -60,10 +62,4 @@ cursor: pointer;
     background-color: white;
     color: black;
 }
-.filtry span{
-    font-size: 1.5vw;
-    font-family: "HankenGrotesk";
-    letter-spacing: 1px;
-    font-weight: 900;
-    
-}
+
