@@ -8,6 +8,7 @@ import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import DeckIcon from '@mui/icons-material/Deck';
 import { useState } from "react";
 import { set } from "mongoose";
+import ProfileMenu from "@/components/ProfileMenu/profileMenu";
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import TuneIcon from '@mui/icons-material/Tune';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
@@ -24,6 +25,11 @@ export default function BizuteriaPage() {
   const [isShowCena, setShowCena] = useState(false);
 
   const {data : session} = useSession();
+   const [isShowProfileMenu, setIsShowProfileMenu] = useState(false);
+  function toggleProfileMenu() {
+    setIsShowProfileMenu(prev => !prev);
+  }
+
 
 
     const [formData, setFormData] = useState({
@@ -134,30 +140,32 @@ export default function BizuteriaPage() {
 
   return (
     <div className="bizuteriaContainer">
-      <div className="header">
-              {session && (
-                <button
-                  className="Logout"
-                  type="button"
-                  onClick={() => signOut({ callbackUrl: '/oferty' })}
-                >
-                  Wyloguj się
-                </button>
-              )}
-              <img src="Safeko-header-logo.png" className="header-logo" />
-              {session?.user ? (
-                <>
-                  <img
-                    src={session.user.image}
-                    alt={session.user.name}
-                    className="UserProfileImage"
-                  />
-                  <span className="UserName">{session.user.name}</span>
-                </>
-              ) : (
-                <UserIcon style={{ fontSize: 50, color: 'Black' }} className="UserIcon" />
-              )}
-            </div>
+      <div className={`profileMenu ${isShowProfileMenu ? 'show' : ''}`}>
+                <ProfileMenu />
+              </div>
+              <div className="header">
+                <div className="headerText">
+                  <a href="Kontakt">Kontakt</a>
+                  <a href="O-nas">O nas</a>
+                </div>
+                <img src= "/default_logo.svg" className="LogoIcon"/>
+                
+                
+                {session?.user ? (
+                  <>
+                  <button className="UserProfileButton" type='button' onClick={toggleProfileMenu}>
+                    <img
+                      src={session.user.image}
+                      alt={session.user.name}
+                      className="UserProfileImage"
+                    />
+                  </button>
+                    
+                  </>
+                ) : (
+                  <UserIcon style={{ fontSize: 50, color: 'Black' }} className="UserIcon" />
+                )}
+              </div>
       <form className="bizuteriaForm">
         <div className="coChceszZrobic">
           CO CHCESZ SPRZEDAĆ?
@@ -180,7 +188,7 @@ export default function BizuteriaPage() {
         <div className={`daneModal ${isShowDane ? 'show' : ''}`}>
                     <button type="button"  onClick={() => setShowKontakt(true)} className="dalej2">Dalej</button>
                     <div className='daneModalText'>
-                        <DiamondIcon style={{fontSize:50, color:"black"}}/>
+                        <DiamondIcon style={{fontSize:50, color:"#1d1d1b"}}/>
                         DANE TECHNICZNE
                     </div>
                     <div className='daneModalContent'>
@@ -209,7 +217,7 @@ export default function BizuteriaPage() {
         <div className={`kontaktModal ${isShowKontakt ? 'show' : ''}`}>
         <button type = "button" className="dalej" onClick={() => setShowPhoto(true)}>Dalej</button>
         <div className="kontaktZTobaText">
-          <PersonAddIcon style={{fontSize:50, color:"black"}}/>
+          <PersonAddIcon style={{fontSize:50, color:"#1d1d1b"}}/>
           DAJ KONTAKT DO SIEBIE!
         </div>
         <div className="kontaktZTobaInput">
@@ -230,7 +238,7 @@ export default function BizuteriaPage() {
         <div className={`photosModalContainer ${isShowPhoto ? 'show' : ''}`}>
           <button type="button" className="dalej3" onClick={() => setShowTytul(true)} >Dalej</button>
           <div className="photosModalText">
-          <AddAPhotoIcon style={{fontSize:50, color:"black"}}/>
+          <AddAPhotoIcon style={{fontSize:50, color:"#1d1d1b"}}/>
           <h1>DODAJ ZDJĘCIA</h1>
         </div>
         <div className="photosModal">
@@ -244,7 +252,7 @@ export default function BizuteriaPage() {
             />
             <AddPhotoAlternateIcon
               className="addPhotoIcon"
-              style={{ fontSize: 60, color: 'white' }}
+              style={{ fontSize: 60, color: '#1d1d1b' }}
             />
           
         </div>
@@ -252,7 +260,7 @@ export default function BizuteriaPage() {
         <div className={`tytulModal ${isShowTytul ? 'show' : ''}`}>
           <button type="button" className="dalej4" onClick={() => setShowCena(true)}>Dalej</button>
           <div className="tytulModalText">
-            <FormatColorTextIcon style={{fontSize:50, color:"black"}}/>
+            <FormatColorTextIcon style={{fontSize:50, color:"#1d1d1b"}}/>
             <h1>TYTUŁ I OPIS</h1>
           </div>
           <div className="tytulModalContent">
@@ -264,7 +272,7 @@ export default function BizuteriaPage() {
         </div>
         <div className={`cenaModal ${isShowCena ? 'show' : ''}`}>
           <div className="cenaModalText">
-            <AttachMoneyIcon style={{fontSize:50, color:"black"}}/>
+            <AttachMoneyIcon style={{fontSize:50, color:"#1d1d1b"}}/>
             <h1>CENA</h1>
           </div>
           <div className="cenaModalContent">

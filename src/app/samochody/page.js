@@ -5,6 +5,7 @@ import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import DirectionsCarFilledIcon from '@mui/icons-material/DirectionsCarFilled';
 import UserIcon from '@mui/icons-material/Person';
 import { useState } from "react";
+import ProfileMenu from "@/components/ProfileMenu/profileMenu";
 import { useRouter } from 'next/navigation';
 import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
@@ -24,6 +25,10 @@ export default function Samochody(){
     const [isShowTytul, setIsShowTytul] = useState(false);
     const [isShowCena, setIsShowCena] = useState(false);
     const {data: session} = useSession();
+    const [isShowProfileMenu, setIsShowProfileMenu] = useState(false);
+  function toggleProfileMenu() {
+    setIsShowProfileMenu(prev => !prev);
+  }
     function showMarka() {
         setIsShownMarka(true);
     }
@@ -258,30 +263,32 @@ const handleBrandChange = (event) => {
 
     return(
         <div className="samochodyContainer">
-          <div className="header">
-        {session && (
-          <button
-            className="Logout"
-            type="button"
-            onClick={() => signOut({ callbackUrl: '/oferty' })}
-          >
-            Wyloguj się
-          </button>
-        )}
-        <img src="Safeko-header-logo.png" className="header-logo" />
-        {session?.user ? (
-          <>
-            <img
-              src={session.user.image}
-              alt={session.user.name}
-              className="UserProfileImage"
-            />
-            <span className="UserName">{session.user.name}</span>
-          </>
-        ) : (
-          <UserIcon style={{ fontSize: 50, color: 'Black' }} className="UserIcon" />
-        )}
-      </div>
+          <div className={`profileMenu ${isShowProfileMenu ? 'show' : ''}`}>
+                <ProfileMenu />
+              </div>
+              <div className="header">
+                <div className="headerText">
+                  <a href="Kontakt">Kontakt</a>
+                  <a href="O-nas">O nas</a>
+                </div>
+                <img src= "/default_logo.svg" className="LogoIcon"/>
+                
+                
+                {session?.user ? (
+                  <>
+                  <button className="UserProfileButton" type='button' onClick={toggleProfileMenu}>
+                    <img
+                      src={session.user.image}
+                      alt={session.user.name}
+                      className="UserProfileImage"
+                    />
+                  </button>
+                    
+                  </>
+                ) : (
+                  <UserIcon style={{ fontSize: 50, color: '#1d1d1b' }} className="UserIcon" />
+                )}
+              </div>
             <form className="samochodyForm">        
                 <div className="coChceszZrobic">
           JAKI POJAZD CHCESZ SPRZEDAĆ?
@@ -292,7 +299,7 @@ const handleBrandChange = (event) => {
             setFormData({ ...formData, pojazdTyp: "Osobowy" })
           }}><DirectionsCarIcon sx={{
       fontSize: 50,
-      color: "white",
+      color: "#1d1d1b",
       transition: "all 0.3s ease",
       ".osobowyButton:hover &": {
         color: "black",
@@ -304,7 +311,7 @@ const handleBrandChange = (event) => {
             setFormData({ ...formData, pojazdTyp: "Motocykl" })
           }}><TwoWheelerIcon sx={{
       fontSize: 50,
-      color: "white",
+      color: "#1d1d1b",
       transition: "all 0.3s ease",
       ".motocyklButton:hover &": {
         color: "black",
@@ -315,7 +322,7 @@ const handleBrandChange = (event) => {
       <div className={`markamodelModal ${isShownMarka ? 'show' : ''}`}>
         <button type='button' onClick={() => showDane()} className='dalej'>Dalej</button>
         <div className='markamodelModalText'>
-            <DirectionsCarFilledIcon style={{fontSize:50, color:"black"}}/>
+            <DirectionsCarFilledIcon style={{fontSize:50, color:"#1d1d1b"}}/>
           MARKA I MODEL
         </div>
         <div className='markamodelModalContent'>
@@ -355,7 +362,7 @@ const handleBrandChange = (event) => {
       <div className={`daneModal ${isShowDane ? 'show' : ''}`}>
             <button type="button" onClick={() => showPhotos()} className="dalej2">Dalej</button>
             <div className='daneModalText'>
-                <SettingsSuggestIcon style={{fontSize:50, color:"black"}}/>
+                <SettingsSuggestIcon style={{fontSize:50, color:"#1d1d1b"}}/>
                 DANE TECHNICZNE
             </div>
             <div className='daneModalContent'>
@@ -381,7 +388,7 @@ const handleBrandChange = (event) => {
       <div className={`photosModalContainer ${isShownPhotos ? 'show' : ''}`}>
           <button type="button"   onClick={() => showKontakt()} className="dalej3">Dalej</button>
           <div className="photosModalText">
-          <AddAPhotoIcon style={{fontSize:50, color:"black"}}/>
+          <AddAPhotoIcon style={{fontSize:50, color:"#1d1d1b"}}/>
           <h1>DODAJ ZDJĘCIA</h1>
         </div>
         <div className="photosModal">
@@ -395,7 +402,7 @@ const handleBrandChange = (event) => {
             />
             <AddPhotoAlternateIcon
               className="addPhotoIcon"
-              style={{ fontSize: 60, color: 'white' }}
+              style={{ fontSize: 60, color: '#1d1d1b' }}
             />
           
         </div>
@@ -404,7 +411,7 @@ const handleBrandChange = (event) => {
       <div className={`kontaktModal ${isShowKontakt ? 'show' : ''}`}>
         <button type = "button" className="dalej4" onClick={() => showTytul()} >Dalej</button>
         <div className="kontaktZTobaText">
-          <PersonAddIcon style={{fontSize:50, color:"black"}}/>
+          <PersonAddIcon style={{fontSize:50, color:"#1d1d1b"}}/>
           DAJ KONTAKT DO SIEBIE!
         </div>
         
@@ -428,7 +435,7 @@ const handleBrandChange = (event) => {
         <div className={`tytulModal ${isShowTytul ? 'show' : ''}`}>
           <button type="button" onClick={() => setIsShowCena(true)} className="dalej5" >Dalej</button>
           <div className="tytulModalText">
-            <FormatColorTextIcon style={{fontSize:50, color:"black"}}/>
+            <FormatColorTextIcon style={{fontSize:50, color:"#1d1d1b"}}/>
             <h1>TYTUŁ I OPIS</h1>
           </div>
           <div className="tytulModalContent">
@@ -440,7 +447,7 @@ const handleBrandChange = (event) => {
         </div>
         <div className={`cenaModal ${isShowCena ? 'show' : ''}`}>
           <div className="cenaModalText">
-            <AttachMoneyIcon style={{fontSize:50, color:"black"}}/>
+            <AttachMoneyIcon style={{fontSize:50, color:"#1d1d1b"}}/>
             <h1>CENA</h1>
           </div>
           <div className="cenaModalContent">

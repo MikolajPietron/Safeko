@@ -7,6 +7,7 @@ import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import DeckIcon from '@mui/icons-material/Deck';
 import { useState } from "react";
 import { set } from "mongoose";
+import ProfileMenu from "@/components/ProfileMenu/profileMenu";
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import TuneIcon from '@mui/icons-material/Tune';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
@@ -27,6 +28,10 @@ export default function Nieruchomosci() {
   const [isShownPhotos, setShownPhotos] = useState(false);
   const [isShownTytul, setShownTytul] = useState(false);
   const [isShownCena, setShownCena] = useState(false);
+  const [isShowProfileMenu, setIsShowProfileMenu] = useState(false);
+  function toggleProfileMenu() {
+    setIsShowProfileMenu(prev => !prev);
+  }
 
   const {data: session} = useSession();
   useEffect(() => {
@@ -161,30 +166,32 @@ export default function Nieruchomosci() {
   }
   return (
     <div className="nieruchomosciContainer">
-      <div className="header">
-        {session && (
-          <button
-            className="Logout"
-            type="button"
-            onClick={() => signOut({ callbackUrl: '/oferty' })}
-          >
-            Wyloguj się
-          </button>
-        )}
-        <img src="Safeko-header-logo.png" className="header-logo" />
-        {session?.user ? (
-          <>
-            <img
-              src={session.user.image}
-              alt={session.user.name}
-              className="UserProfileImage"
-            />
-            <span className="UserName">{session.user.name}</span>
-          </>
-        ) : (
-          <UserIcon style={{ fontSize: 50, color: 'Black' }} className="UserIcon" />
-        )}
-      </div>
+      <div className={`profileMenu ${isShowProfileMenu ? 'show' : ''}`}>
+                <ProfileMenu />
+              </div>
+              <div className="header">
+                <div className="headerText">
+                  <a href="Kontakt">Kontakt</a>
+                  <a href="O-nas">O nas</a>
+                </div>
+                <img src= "/default_logo.svg" className="LogoIcon"/>
+                
+                
+                {session?.user ? (
+                  <>
+                  <button className="UserProfileButton" type='button' onClick={toggleProfileMenu}>
+                    <img
+                      src={session.user.image}
+                      alt={session.user.name}
+                      className="UserProfileImage"
+                    />
+                  </button>
+                    
+                  </>
+                ) : (
+                  <UserIcon style={{ fontSize: 50, color: 'Black' }} className="UserIcon" />
+                )}
+              </div>
       <form className="nieruchomosciForm">
         <div className="coChceszZrobic">
           CO CHCESZ SPRZEDAĆ?
@@ -195,7 +202,7 @@ export default function Nieruchomosci() {
             setFormData({ ...formData, typ: "Mieszkanie" })
           }}><ApartmentIcon sx={{
       fontSize: 40,
-      color: "white",
+      color: "#1d1d1b",
       transition: "all 0.3s ease",
       ".mieszkanieButton:hover &": {
         color: "black",
@@ -207,7 +214,7 @@ export default function Nieruchomosci() {
             setFormData({ ...formData, typ: "Dom" })
           }}><HouseIcon sx={{
       fontSize: 40,
-      color: "white",
+      color: "#1d1d1b",
       transition: "all 0.3s ease",
       ".domButton:hover &": {
         color: "black",
@@ -219,7 +226,7 @@ export default function Nieruchomosci() {
             setFormData({ ...formData, typ: "Działka" })
           }}><DeckIcon sx={{
       fontSize: 40,
-      color: "white",
+      color: "#1d1d1b",
       transition: "all 0.3s ease",
       ".dzialkaButton:hover &": {
         color: "black",
@@ -231,7 +238,7 @@ export default function Nieruchomosci() {
         <div ref={kontaktRef} className={`kontaktModal ${isShownKontakt ? "show" : ""}`}>
         <button type = "button" className="dalej" onClick={() => setShownMetraz(true)}>Dalej</button>
         <div className="kontaktZTobaText">
-          <PersonAddIcon style={{fontSize:50, color:"black"}}/>
+          <PersonAddIcon style={{fontSize:50, color:"#1d1d1b"}}/>
           DAJ KONTAKT DO SIEBIE!
         </div>
         <div className="kontaktZTobaInput">
@@ -253,7 +260,7 @@ export default function Nieruchomosci() {
         <div ref={metrazRef} className={`metrazModalContainer ${isShownMetraz ? "show" : ""}`}>
           <button className="dalej2"  type = "button"onClick={showPhotosModal}>Dalej</button>
           <div className="metrazModalText">
-          <TuneIcon style={{fontSize:50, color:"black"}}/>
+          <TuneIcon style={{fontSize:50, color:"#1d1d1b"}}/>
           <h1>GŁÓWNE INFORMACJE</h1>
         </div>
         <div className= "metrazModal" >
@@ -265,7 +272,7 @@ export default function Nieruchomosci() {
         <div ref={photosRef} className={`photosModalContainer ${isShownPhotos ? "show" : ""}`}>
           <button type="button" className="dalej3" onClick={showTytulModal}>Dalej</button>
           <div className="photosModalText">
-          <AddAPhotoIcon style={{fontSize:50, color:"black"}}/>
+          <AddAPhotoIcon style={{fontSize:50, color:"#1d1d1b"}}/>
           <h1>DODAJ ZDJĘCIA</h1>
         </div>
         <div className="photosModal">
@@ -278,7 +285,7 @@ export default function Nieruchomosci() {
             />
             <AddPhotoAlternateIcon
               className="addPhotoIcon"
-              style={{ fontSize: 60, color: 'white' }}
+              style={{ fontSize: 60, color: '#1d1d1b' }}
             />
           
         </div>
@@ -287,7 +294,7 @@ export default function Nieruchomosci() {
         <div ref={tytulRef} className={`tytulModal ${isShownTytul ? "show" : ""}`}>
           <button type="button" className="dalej4" onClick={showCenaModal}>Dalej</button>
           <div className="tytulModalText">
-            <FormatColorTextIcon style={{fontSize:50, color:"black"}}/>
+            <FormatColorTextIcon style={{fontSize:50, color:"#1d1d1b"}}/>
             <h1>TYTUŁ I OPIS</h1>
           </div>
           <div className="tytulModalContent">

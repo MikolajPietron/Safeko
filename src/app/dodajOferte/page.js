@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import UserIcon from '@mui/icons-material/Person';
 import './ofertyadd.css'; // reuse your CSS
 import {useSession} from 'next-auth/react';
+import ProfileMenu from "@/components/ProfileMenu/profileMenu";
 import HomeIcon from '@mui/icons-material/Home';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import WatchIcon from '@mui/icons-material/Watch';
@@ -17,6 +18,10 @@ export default function DodajOferte() {
     { name: "Biżuteria", icon: <WatchIcon className='watchIcon' style={{color:'black', fontSize: 40, cursor: 'pointer'}} /> },
     { name: "Samochody", icon: <DirectionsCarIcon className='carIcon' style={{color:'black', fontSize: 40, cursor: 'pointer'}} /> },
   ];
+  const [isShowProfileMenu, setIsShowProfileMenu] = useState(false);
+  function toggleProfileMenu() {
+    setIsShowProfileMenu(prev => !prev);
+  }
   const router = useRouter();
   const { data: session } = useSession();
 
@@ -102,25 +107,27 @@ export default function DodajOferte() {
   return (
     <form onSubmit={handleSubmit}>
       <div className="OfertaAddContainer">
-        <div className="header">
-                {session && (
-                  <button
-                    className="Logout"
-                    type="button"
-                    onClick={() => signOut({ callbackUrl: '/oferty' })}
-                  >
-                    Wyloguj się
-                  </button>
-                )}
-                <img src="Safeko-header-logo.png" className="header-logo" />
+        <div className={`profileMenu ${isShowProfileMenu ? 'show' : ''}`}>
+                <ProfileMenu />
+              </div>
+              <div className="header">
+                <div className="headerText">
+                  <a href="Kontakt">Kontakt</a>
+                  <a href="O-nas">O nas</a>
+                </div>
+                <img src= "/default_logo.svg" className="LogoIcon"/>
+                
+                
                 {session?.user ? (
                   <>
+                  <button className="UserProfileButton" type='button' onClick={toggleProfileMenu}>
                     <img
                       src={session.user.image}
                       alt={session.user.name}
                       className="UserProfileImage"
                     />
-                    <span className="UserName">{session.user.name}</span>
+                  </button>
+                    
                   </>
                 ) : (
                   <UserIcon style={{ fontSize: 50, color: 'Black' }} className="UserIcon" />
@@ -136,7 +143,7 @@ export default function DodajOferte() {
               router.push('/nieruchomosci');
             }}><HomeIcon className='homeIcon' sx={{
       fontSize: 40,
-      color: "white",
+      color: "#1d1d1b",
       transition: "all 0.3s ease",
       ".goToNieruchomosci:hover &": {
         color: "black",
@@ -149,7 +156,7 @@ export default function DodajOferte() {
             }}>
               <WatchIcon className='watchIcon' sx={{
       fontSize: 40,
-      color: "white",
+      color: "#1d1d1b",
       transition: "all 0.3s ease",
       ".goToBizuteria:hover &": {
         color: "black",
@@ -160,7 +167,7 @@ export default function DodajOferte() {
             <button type='button' className='goToSamochody' onClick={() => router.push('/samochody')}>
               <DirectionsCarIcon className='carIcon' sx={{
       fontSize: 40,
-      color: "white",
+      color: "#1d1d1b",
       transition: "all 0.3s ease",
       ".goToSamochody:hover &": {
         color: "black",

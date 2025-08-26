@@ -58,10 +58,10 @@ body {
   background-color: white;
 }
 .header-logo{
-  width: fit-content;
+  width: 15vw;
   height: fit-content;
   position: absolute ;
-  left: -80px;
+  left: -70px;
   top: -40px;
   
 }
