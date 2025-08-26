@@ -21,7 +21,10 @@ body {
     align-items: center;
     display: flex;
     position: relative;
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    
 }
 .dodajOferte{
     position: absolute;
@@ -187,25 +190,28 @@ position: relative;
   color: black;
   border: 2px solid black;
 }
-.OfertyList{
-  position: absolute;
-  top: 35%;
-  height: auto; 
-  overflow: visible;
+.OfertyList {
+  
+  position: relative;       
+  margin-top: 200px;             
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;          /* scroll only inside */
   width: 80vw;
-  flex-wrap: wrap;
   gap: 70px;
-  column-gap: auto;
-  display: grid;
-  grid-template-columns: repeat(1,1fr);
-  place-items: center;
-  align-self: center;
   align-items: center;
-  
-  
-  
-  
-  
+  padding: 10px 0;          /* avoid clipping */
+}
+.OfertyList::-webkit-scrollbar {
+  width: 6px;
+}
+.OfertyList::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+}
+.OfertyList::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
 }
 .OfertaItem{
   position: relative;
@@ -436,7 +442,7 @@ position: relative;
 .Wyszukiwarka{
   position: absolute;
   
-  top: 25%;
+  top: 10%;
   display: flex;
   flex-direction: row;
   height: 10vh;
