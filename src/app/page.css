@@ -119,9 +119,9 @@ body {
   width: 30vw;
   height: 30vh;
   color: #1d1d1b;
-  left: 8%;
-  top: 30%;
-  font-size: 4rem;
+  left: 5%;
+  top: 35%;
+  font-size: 3vw;
   font-family: 'HankenGrotesk';
   font-weight: 500;
 }
@@ -190,7 +190,7 @@ body {
   width: 50%;
   border: 2px solid green;
   cursor: pointer;
-  border-radius: 5px;
+  
   font-size: 1vw;
   font-family: "HankenGrotesk";
   background-color: #1d1d1b;
@@ -221,15 +221,16 @@ body {
 .ButtonsContainer{
   
   width: 20%;
+  height: fit-content;
   position: fixed;
   display: flex;
   flex-direction: column;
-  top: 43%;
-  left: 50%;
+  top: 48%;
+  left: 43%;
   transform: translate(-50%,-50%);
   
-  height: 50%;
-  border-radius: 30px;
+ 
+  
   justify-content: center;
   align-items: center;
   gap: 50px;
@@ -239,6 +240,21 @@ body {
 
   
 }
+.MainPageLogoImage{
+  
+  position: absolute;
+  left: 43%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  top: 15%;
+  transform: translate(-50%, -50%);
+  height: 100vw;
+  width: 70vw;
+  z-index: 100;
+}
+
 
 .LoginButton{
   
@@ -258,14 +274,14 @@ body {
 }
 
 .OffersButton{
-  height: 8vh;
-  width: 15vw;
+  height: 9vh;
+  width: 18vw;
   align-self: right;
   background-color: #1d1d1b;
   letter-spacing: 1.5px;
   border: 2px solid #1d1d1b;
   color: rgb(255, 255, 255);
-  font-size: 1.5vw;
+  font-size: 1.8vw;
   font-family: 'HankenGrotesk';
   
   cursor: pointer;

@@ -33,7 +33,7 @@ export default function Home() {
           <a href="Kontakt">Kontakt</a>
           <a href="O-nas">O nas</a>
         </div>
-        <img src= "/default_logo.svg" className="LogoIcon"/>
+        {/* <img src= "/default_logo.svg" className="LogoIcon"/> */}
         
         
         {session?.user ? (
@@ -54,8 +54,11 @@ export default function Home() {
       <div className="WaveElement">
         <img src="/WaveElement2.svg" alt="Wave" className="waveElement" />
       </div>
+
+        <img src="/default_logo.svg" alt="Logo" className="MainPageLogoImage"/>
+
       <div className="MainPageText">Get ready for<br/>new marketplace<br/>experience_</div>
-      
+
 
       <div className="SafekoLogo">
       
@@ -69,7 +72,7 @@ export default function Home() {
           
         </div> */}
         <button onClick ={goToOffers} className="OffersButton">Zobacz oferty</button>
-        <button onClick = {goToLogin} className="LoginButton">Zaloguj się</button>
+        {/* <button onClick = {goToLogin} className="LoginButton">Zaloguj się</button> */}
         {/* <button className="GroupsButton">Grupy</button> */}
         {/* <div className="OffersContainer">
           <KeyboardDoubleArrowRightIcon style={{fontSize:50,color:"white"}}/>
