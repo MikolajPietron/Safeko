@@ -12,6 +12,9 @@ export default function OfertaDetailsPage() {
   const { id } = useParams();
   const [oferta, setOferta] = useState(null);
   const {data: session} = useSession();
+  const [isShowProfileMenu, setIsShowProfileMenu] = useState(false);
+  
+  
   useEffect(() => {
     async function fetchOferta() {
       const res = await fetch(`/api/ofertadetails/${id}`);

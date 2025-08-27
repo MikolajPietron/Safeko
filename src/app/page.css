@@ -33,9 +33,9 @@ body {
   position: absolute;
   top: 100px;
   right: 20px;
-  height: 40vh;
+  height: 35vh;
   width: 15vw;
-  
+  z-index: 1000;
   opacity: 0;
 }
 .profileMenu.show{
