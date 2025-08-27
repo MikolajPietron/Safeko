@@ -71,7 +71,7 @@ export default function Home() {
           <KeyboardDoubleArrowRightIcon style={{fontSize:50,color:"white"}}/>
           
         </div> */}
-        <button onClick ={goToOffers} className="OffersButton">Zobacz oferty</button>
+        <button onClick ={goToOffers} className="OffersButton">Zobacz ogłoszenia</button>
         {/* <button onClick = {goToLogin} className="LoginButton">Zaloguj się</button> */}
         {/* <button className="GroupsButton">Grupy</button> */}
         {/* <div className="OffersContainer">
