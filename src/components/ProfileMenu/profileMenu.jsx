@@ -30,7 +30,7 @@ export default function ProfileMenu({onClick}) {
       </div>
       <div className="spacer"></div>
       <div className="goToDodajOgloszenie">
-        <button onClick={() => router.push('/dodajOferte')} className="goToDodajOgloszenieButton"><AddCircleIcon sx={{color: "white", fontSize: 25,transition: "all 0.3s ease",
+        <button onClick={() => router.push('/dodajOferte')} type = "button" className="goToDodajOgloszenieButton"><AddCircleIcon sx={{color: "white", fontSize: 25,transition: "all 0.3s ease",
       ".goToDodajOgloszenieButton:hover &": {
         color: "black",
         
