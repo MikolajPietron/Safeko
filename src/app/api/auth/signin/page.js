@@ -28,6 +28,9 @@ export default function Login() {
 
   return (
     <div className='LoginContainer'>
+      <div className='leftPillar'>
+
+      </div>
       <div className='LoginForm'>
         <img src='/default_logo.svg' className='LogoLogin' />
 
@@ -67,6 +70,9 @@ export default function Login() {
           </div>
           
         </form>
+      </div>
+      <div className='rightPillar'>
+        
       </div>
     </div>
   );

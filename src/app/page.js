@@ -57,7 +57,7 @@ export default function Home() {
 
         <img src="/default_logo.svg" alt="Logo" className="MainPageLogoImage"/>
 
-      <div className="MainPageText">Get ready for<br/>new marketplace<br/>experience_</div>
+      {/* <div className="MainPageText">Get ready for<br/>new marketplace<br/>experience_</div> */}
 
 
       <div className="SafekoLogo">
