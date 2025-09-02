@@ -31,7 +31,7 @@ export default function Login() {
       <div className='LoginForm'>
         <img src='/default_logo.svg' className='LogoLogin' />
 
-        <form onSubmit={handleLogin}>
+        <form className='LoginFormReal' onSubmit={handleLogin}>
           <input
             type='text'
             placeholder='E-mail'
@@ -46,6 +46,9 @@ export default function Login() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+          <button type='button' className='register-btn' onClick={() => router.push('/auth/register')}>
+              Zarejestruj się
+            </button>
 
           {error && <p style={{ color: 'red' }}>{error}</p>}
 
@@ -60,10 +63,9 @@ export default function Login() {
               <img src='/googleIcon.svg' alt='Google logo' />
             </button>
 
-            <button type='button' onClick={() => router.push('/auth/register')}>
-              Zarejestruj się
-            </button>
+            
           </div>
+          
         </form>
       </div>
     </div>

@@ -1,14 +1,16 @@
 'use client';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useSession } from "next-auth/react";
 import { FaUser, FaUserCircle } from "react-icons/fa";
 import "./ofertadetails.css";
 import { MdMarkEmailUnread } from "react-icons/md";
+import ProfileMenu from "@/components/ProfileMenu/profileMenu";
 import { BsFillTelephoneForwardFill } from "react-icons/bs";
 
 import UserIcon from '@mui/icons-material/Person';
 export default function OfertaDetailsPage() {
+  const router = useRouter();
   const { id } = useParams();
   const [oferta, setOferta] = useState(null);
   const {data: session} = useSession();
@@ -33,12 +35,15 @@ export default function OfertaDetailsPage() {
 
   return (
     <div className='ofertaDetailsContainer'>
+      <div className={`profileMenu ${isShowProfileMenu ? 'show' : ''}`}>
+              <ProfileMenu />
+            </div>
       <div className="header">
         <div className="headerText">
           <a href="Kontakt">Kontakt</a>
           <a href="O-nas">O nas</a>
         </div>
-        <img src= "/default_logo.svg" className="LogoIcon"/>
+        <img src= "/default_logo.svg" className="LogoIcon" onClick={() => router.push("/oferty")}/>
         
         
         {session?.user ? (

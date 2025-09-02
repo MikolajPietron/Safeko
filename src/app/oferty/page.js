@@ -67,7 +67,7 @@ export default function Oferty() {
             />
           </button>
         )}
-        <img src="default_logo.svg" className="header-logo" />
+        <img src="default_logo.svg" className="header-logo" onClick={() => router.push("/oferty")} />
         {session?.user ? (
           <>
             
@@ -91,20 +91,20 @@ export default function Oferty() {
 
       
 
-      <div className="Wyszukiwarka">
+      <div className="WyszukiwarkaOferty">
         <FiltryMenu setSelectedCategory={setSelectedCategory} />
       </div>
 
-      <div className="OfertyList">
+      <div className="OfertyListOferty">
         {ofertyList
           .filter(oferta => !selectedCategory || oferta.kategoria === selectedCategory)
           .map(oferta => (
-            <div key={oferta._id} className="OfertaItem">
-              <div className='imageContainerOferty'>
+            <div key={oferta._id} className="OfertaItemOferty" onClick={() => router.push(`/ofertadetails/${oferta._id}`)}>
+              <div className='imageContainerOfertyOferty'>
 
               <img
                 src={`https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME}.s3.amazonaws.com/${oferta.imageKey}`}
-                className="OfertaPhoto1"
+                className="OfertaPhoto1Oferty"
               />
               </div>
               <div className='detailsContainer'>
@@ -135,7 +135,7 @@ export default function Oferty() {
                 </div>
                 
                 <p className="cena1">{oferta.cena} Zł</p>
-                <button className="kup">Dodaj do koszyka</button>
+                <button className="kupOferty">Dodaj do koszyka</button>
                 <span
                   className="szczegolyOferty"
                   onClick={() => router.push(`/ofertadetails/${oferta._id}`)}

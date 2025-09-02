@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
+import "./registration.css";
+
 
 export default function RegisterPage() {
   const [name, setName] = useState("");
@@ -38,20 +40,22 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 border rounded-lg shadow">
-      <h1 className="text-2xl font-bold mb-4">Create Account</h1>
-
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input
+    <div className="RegContainer">
+      <h1 className="Regh1">Create Account</h1>
+      
+          <form onSubmit={handleSubmit} className="LoginFormContainer">
+            <img src='/default_logo.svg' className='LogoLogin' />
+            <div className="FormInputContainer">
+                <input
           type="text"
-          placeholder="Name"
+          placeholder="Nazwa Użytkownika"
           value={name}
           onChange={(e) => setName(e.target.value)}
           className="w-full p-2 border rounded"
         />
         <input
           type="email"
-          placeholder="Email"
+          placeholder="E-mail"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="w-full p-2 border rounded"
@@ -59,7 +63,7 @@ export default function RegisterPage() {
         />
         <input
           type="password"
-          placeholder="Password"
+          placeholder="Hasło"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="w-full p-2 border rounded"
@@ -70,11 +74,17 @@ export default function RegisterPage() {
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
+          className="RegisterButton"
         >
           Register
         </button>
+            </div>
+        
       </form>
+      
+
+
+      
     </div>
   );
 }

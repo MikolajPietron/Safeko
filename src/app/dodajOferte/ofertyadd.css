@@ -82,6 +82,7 @@
   position: absolute ;
   left: -70px;
   top: -40px;
+  cursor: pointer;
   
 }
 .UserName{

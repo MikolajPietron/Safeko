@@ -271,7 +271,7 @@ const handleBrandChange = (event) => {
                   <a href="Kontakt">Kontakt</a>
                   <a href="O-nas">O nas</a>
                 </div>
-                <img src= "/default_logo.svg" className="LogoIcon"/>
+                <img src= "/default_logo.svg" className="LogoIcon" onClick={() => router.push("/oferty")}/>
                 
                 
                 {session?.user ? (
