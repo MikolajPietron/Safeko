@@ -135,7 +135,7 @@ export default function DodajOferte() {
               </div>
         <div className='wybierzOferteContainer'>
           <div className='wybierzOferteText'>
-            <h2>Wybierz ofertę</h2>
+            <h2>Nowe Ogłoszenie</h2>
           </div>
           <div className='wybierzOferteButtons'>
             <button type='button' className='goToNieruchomosci' onClick={() => {
