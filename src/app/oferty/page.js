@@ -59,11 +59,11 @@ export default function Oferty() {
       
       <div className="headerOferty">
         {session && (
-          <button className="UserProfileButton" onClick={toggleProfileMenu}>
+          <button className="UserProfileButtonOferty" onClick={toggleProfileMenu}>
             <img
               src={session.user.image}
               alt={session.user.name}
-              className="UserProfileImage"
+              className="UserProfileImageOferty"
             />
           </button>
         )}

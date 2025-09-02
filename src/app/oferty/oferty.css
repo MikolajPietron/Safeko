@@ -74,7 +74,7 @@ body {
   
   
 }
-.UserProfileButton{
+.UserProfileButtonOferty{
   position: absolute;
   display: flex;
   right: 20px;
@@ -85,8 +85,9 @@ body {
   border: 2px solid black;
   cursor: pointer;
 }
-.UserProfileImage{
+.UserProfileImageOferty{
   position: absolute;
+  object-fit: cover;
   height: 100%;
   width: 100%;
   left: 50%;
